@@ -1,1 +1,1 @@
-# INFSCI-2710-E-Commerce-Databased
+# INFSCI-2710-E-Commerce-Database
