@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `customer_id` int(11) NOT NULL,
   `balance` int(11) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `accounts`
@@ -100,14 +100,14 @@ INSERT INTO `accounts` (`customer_id`, `balance`) VALUES
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE IF NOT EXISTS `customer` (
   `customer_id` int(11) NOT NULL,
-  `customer_name` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `customer_name` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `customer_address_street` char(50) DEFAULT NULL,
   `customer_address_city` char(30) DEFAULT NULL,
-  `customer_address_state` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `customer_address_state` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `customer_address_zip` char(10) DEFAULT NULL,
   `customer_type` char(10) NOT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `customer`
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `customer_business` (
   `business_category` char(20) DEFAULT NULL,
   `business_income` int(11) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `customer_business`
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `customer_home` (
   `age` int(11) DEFAULT NULL,
   `home_income` double DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `customer_home`
@@ -268,14 +268,14 @@ INSERT INTO `customer_home` (`customer_id`, `customer_type`, `marriage_status`, 
 DROP TABLE IF EXISTS `employees`;
 CREATE TABLE IF NOT EXISTS `employees` (
   `emp_id` int(11) NOT NULL,
-  `emp_name` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `emp_name` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `emp_address_street` char(50) DEFAULT NULL,
   `emp_address_city` char(30) DEFAULT NULL,
   `emp_address_state` char(20) DEFAULT NULL,
   `emp_address_zip` char(10) DEFAULT NULL,
-  `email` char(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `email` char(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`emp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `employees`
@@ -342,7 +342,7 @@ CREATE TABLE IF NOT EXISTS `metadata` (
   `number_of_foreign_keys` int(11) DEFAULT NULL,
   `number_of_indexes` int(11) DEFAULT NULL,
   PRIMARY KEY (`table_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `metadata`
@@ -373,7 +373,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `unit_cost` double DEFAULT NULL,
   `product_type` char(20) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `product`
@@ -423,7 +423,7 @@ CREATE TABLE IF NOT EXISTS `region` (
   `region_name` char(30) DEFAULT NULL,
   `region_manager` char(50) DEFAULT NULL,
   PRIMARY KEY (`region_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `region`
@@ -445,11 +445,11 @@ DROP TABLE IF EXISTS `salesperson`;
 CREATE TABLE IF NOT EXISTS `salesperson` (
   `emp_id` int(11) NOT NULL,
   `store_id` int(11) DEFAULT NULL,
-  `title` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `title` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `salary` int(11) DEFAULT NULL,
   PRIMARY KEY (`emp_id`),
   KEY `store_id` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `salesperson`
@@ -508,7 +508,7 @@ CREATE TABLE IF NOT EXISTS `store` (
   `region_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`store_id`),
   KEY `region_id` (`region_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `store`
@@ -543,7 +543,7 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   KEY `emp_id` (`emp_id`),
   KEY `product_id` (`product_id`),
   KEY `customer_id` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `transaction`
