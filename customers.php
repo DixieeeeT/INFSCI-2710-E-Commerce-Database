@@ -41,7 +41,7 @@
 				</p>
 				<label for="customer_id">Customer ID: </label>
 				<input type="text" name="customer_id" />
-				<input type="submit" name="Submit">
+				<input type="submit" name="Submit" value="Search">
 			</form>
 		</div>
 		<div class = "column text-center" style = "float: left; width: 33.33%;">
@@ -55,33 +55,47 @@
 		<div class = "column text-center" style = "float: left; width: 33.33%;">
 			<form action="prod_results_search.php" method="post">
 				<p>
-					<b>Search for a Product:</b>
+					<b>Search for Your Ideal Car:</b>
 				</p>
 				<div>
-					<label for="product_name">Name:</label>
-					<input type="text" name="product_name" />
-				</div>
-				<div>
-					<label for="product_id">Product ID:</label>
+					<label for="product_id">Car Id:</label>
 					<input type="text" name="product_id" />
 				</div>
 				<div>
-					<label for="price">Price:</label>
-					<input type="text" name="price" />
+					<label for="car_brand">Brand:</label>
+					<input type="text" name="car_brand" />
 				</div>
 				<div>
-					<label for="product_type">Type:</label>
-					<select name="product_type">
-						<option value="">Select Type</option>
-						<option value="baseball">Baseball</option>
-						<option value="basketball">Basketball</option>
-						<option value="cycling">Cycling</option>
-						<option value="football">Football</option>
-						<option value="hockey">Hockey</option>
-						<option value="skiing">Skiing</option>
-						<option value="soccer">Soccer</option>
-						<option value="tennis">Tennis</option>
-						<option value="volleyball">Volleyball</option>
+					<label for="car_model">Model:</label>
+					<input type="text" name="car_model" />
+				</div>
+				<div>
+					<label for="car_model_year">Year:</label>
+					<input type="text" name="car_model_year" />
+				</div>
+				<div>
+					<label for="car_color">Color:</label>
+					<select name="car_color">
+						<option value="">Select Color</option>
+						<option value="Aquamarine">Aquamarine</option>
+						<option value="Blue">Blue</option>
+						<option value="Crimson">Crimson</option>
+						<option value="Fuscia">Fuscia</option>
+						<option value="Goldenrod">Goldenrod</option>
+						<option value="Green">Green</option>
+						<option value="Indigo">Indigo</option>
+						<option value="Khaki">Khaki</option>
+						<option value="Maroon">Maroon</option>
+						<option value="Mauv">Mauv</option>
+						<option value="Orange">Orange</option>
+						<option value="Pink">Pink</option>
+						<option value="Puce">Puce</option>
+						<option value="Purple">Purple</option>
+						<option value="Red">Red</option>
+						<option value="Teal">Teal</option>
+						<option value="Turquoise">Turquoise</option>
+						<option value="Violet">Violet</option>
+						<option value="Yellow">Yellow</option>
 					</select>
 				</div>
 				<div>

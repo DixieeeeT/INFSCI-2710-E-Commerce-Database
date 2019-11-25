@@ -1,0 +1,19 @@
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+tr, td {
+	border: 1px solid black;
+	padding: 3px;
+}
+
+body {
+	line-height: 125%;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-11-14 14:53:28
+-- 生成日期： 2019-11-25 00:33:39
 -- 服务器版本： 8.0.17
 -- PHP 版本： 7.2.18
 
@@ -33,21 +33,21 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `customer_id` int(11) NOT NULL,
   `balance` int(11) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `accounts`
 --
 
 INSERT INTO `accounts` (`customer_id`, `balance`) VALUES
-(4001, 105),
-(4002, 30),
-(4003, 300),
-(4004, 20),
-(4005, 264),
-(4006, 2),
-(4007, 90),
-(4008, 150),
+(4001, 21),
+(4002, 300000),
+(4003, 30000),
+(4004, 20100),
+(4005, 264533),
+(4006, 22447),
+(4007, 90255),
+(4008, 150000),
 (4009, 725),
 (4010, 185),
 (4011, 210),
@@ -100,21 +100,21 @@ INSERT INTO `accounts` (`customer_id`, `balance`) VALUES
 DROP TABLE IF EXISTS `customer`;
 CREATE TABLE IF NOT EXISTS `customer` (
   `customer_id` int(11) NOT NULL,
-  `customer_name` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `customer_name` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `customer_address_street` char(50) DEFAULT NULL,
   `customer_address_city` char(30) DEFAULT NULL,
-  `customer_address_state` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `customer_address_state` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `customer_address_zip` char(10) DEFAULT NULL,
   `customer_type` char(10) NOT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `customer`
 --
 
 INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_address_street`, `customer_address_city`, `customer_address_state`, `customer_address_zip`, `customer_type`) VALUES
-(4001, 'Stannis Baratheon', '226 Bates', 'Tampa', 'FL', '25556', 'Home'),
+(4001, 'Stannis Baratheon', '226 Bates', 'Tampa', 'FL', '25556', 'home'),
 (4002, 'Tormund Giantsbane', '2 Semple', 'Tampa', 'FL', '25556', 'Home'),
 (4003, 'Viserys Targaryen', '226 McKee', 'Tampa', 'FL', '25556', 'Home'),
 (4004, 'Khal Drogo', '6 Halket', 'Boston', 'MA', '18998', 'Home'),
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `customer_business` (
   `business_category` char(20) DEFAULT NULL,
   `business_income` int(11) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `customer_business`
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `customer_home` (
   `age` int(11) DEFAULT NULL,
   `home_income` double DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `customer_home`
@@ -268,14 +268,14 @@ INSERT INTO `customer_home` (`customer_id`, `customer_type`, `marriage_status`, 
 DROP TABLE IF EXISTS `employees`;
 CREATE TABLE IF NOT EXISTS `employees` (
   `emp_id` int(11) NOT NULL,
-  `emp_name` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `emp_name` char(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `emp_address_street` char(50) DEFAULT NULL,
   `emp_address_city` char(30) DEFAULT NULL,
   `emp_address_state` char(20) DEFAULT NULL,
   `emp_address_zip` char(10) DEFAULT NULL,
-  `email` char(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `email` char(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`emp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `employees`
@@ -342,7 +342,7 @@ CREATE TABLE IF NOT EXISTS `metadata` (
   `number_of_foreign_keys` int(11) DEFAULT NULL,
   `number_of_indexes` int(11) DEFAULT NULL,
   PRIMARY KEY (`table_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `metadata`
@@ -367,49 +367,216 @@ INSERT INTO `metadata` (`table_id`, `TABLE_NAME`, `number_of_fields`, `number_of
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE IF NOT EXISTS `product` (
   `product_id` int(11) NOT NULL,
-  `product_name` char(20) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `price` double DEFAULT NULL,
-  `unit_cost` double DEFAULT NULL,
-  `product_type` char(20) DEFAULT NULL,
+  `car_brand` char(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `car_model` varchar(40) DEFAULT NULL,
+  `car_model_year` int(11) DEFAULT NULL,
+  `car_color` char(20) DEFAULT NULL,
+  `vin` varchar(20) DEFAULT NULL,
+  `car_price` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `quantity`, `price`, `unit_cost`, `product_type`) VALUES
-(7001, 'soccer ball', 3, 10, 5, 'soccer'),
-(7002, 'football', 6, 11, 6, 'football'),
-(7003, 'basketball', 9, 12, 7, 'basketball'),
-(7004, 'volleyball', 8, 13, 8, 'volleyball'),
-(7005, 'baseball', 7, 5, 2, 'baseball'),
-(7006, 'bike', 4, 670, 400, 'cycling'),
-(7007, 'bike helmet', 5, 25, 13, 'cycling'),
-(7008, 'ski helmet', 2, 50, 25, 'skiing'),
-(7009, 'football helmet', 5, 80, 50, 'football'),
-(7010, 'soccer shoes', 8, 60, 50, 'soccer'),
-(7011, 'football shoes', 9, 60, 50, 'football'),
-(7012, 'bicycle shoes', 6, 75, 60, 'cycling'),
-(7013, 'ski boots', 3, 150, 100, 'skiing'),
-(7014, 'bike tires', 1, 20, 15, 'cycling'),
-(7015, 'hockey stick', 2, 66, 56, 'hockey'),
-(7016, 'hockey puck', 5, 2, 1, 'hockey'),
-(7017, 'hockey skates', 4, 45, 30, 'hockey'),
-(7018, 'hockey helmet', 8, 30, 20, 'hockey'),
-(7019, 'tennis racquet', 9, 145, 110, 'tennis'),
-(7020, 'tennis ball', 6, 2, 1, 'tennis'),
-(7021, 'hockey gloves', 58, 55, 30, 'hockey'),
-(7022, 'soccer shin guards', 2, 14, 8, 'soccer'),
-(7023, 'football gloves', 1, 12, 8, 'football'),
-(7024, 'basketball hoop', 4, 250, 150, 'basketball'),
-(7025, 'hockey goal', 3, 65, 35, 'hockey'),
-(7026, 'soccer goal', 3, 60, 30, 'soccer'),
-(7027, 'volleyball net', 2, 30, 28, 'volleyball'),
-(7028, 'baseball bat', 4, 95, 90, 'baseball'),
-(7029, 'baseball glove', 4, 55, 50, 'baseball'),
-(7030, 'batting helmet', 2, 72, 60, 'baseball');
+INSERT INTO `product` (`product_id`, `car_brand`, `car_model`, `car_model_year`, `car_color`, `vin`, `car_price`) VALUES
+(7004, 'Mercedes-Benz', 'S-Class', 2006, 'Aquamarine', '19XFA1E59BE198640', '96544.00'),
+(7005, 'Dodge', 'Ram Wagon B250', 1992, 'Yellow', '4T1BF3EK6BU121433', '61090.00'),
+(7007, 'Scion', 'xB', 2006, 'Mauv', 'WP0AB2A80CU340776', '65119.00'),
+(7008, 'Ford', 'Fusion', 2008, 'Indigo', 'KMHTC6AD4DU976771', '42910.00'),
+(7009, 'Infiniti', 'EX', 2011, 'Maroon', '2T1BU4EE7DC244314', '34125.00'),
+(7010, 'Toyota', 'Celica', 1999, 'Goldenrod', 'WP0CA2A84ES536083', '43493.00'),
+(7011, 'GMC', 'Rally Wagon G3500', 1995, 'Green', '2G61U5S39D9330389', '84368.00'),
+(7012, 'Chevrolet', 'Sportvan G30', 1992, 'Blue', '1GYUCDEF6AR711979', '23248.00'),
+(7013, 'Oldsmobile', 'Bravada', 2004, 'Crimson', 'WA1LFBFP8BA320413', '41537.00'),
+(7014, 'Volkswagen', 'GTI', 1998, 'Goldenrod', '1GKS1HE07ER020945', '41429.00'),
+(7015, 'Ford', 'Mustang', 1994, 'Fuscia', 'WBA3B5C59EF886199', '70430.00'),
+(7016, 'Chrysler', 'New Yorker', 1995, 'Mauv', '5GADX33L35D229665', '24166.00'),
+(7017, 'Audi', 'Allroad', 2001, 'Khaki', 'WAUJGAFD6FN609361', '79047.00'),
+(7018, 'GMC', 'Rally Wagon 1500', 1992, 'Maroon', 'JTEBU5JR7A5847248', '28641.00'),
+(7019, 'Toyota', 'Tacoma', 2006, 'Teal', '3G5DB03E22S523350', '67269.00'),
+(7020, 'Ford', 'Explorer', 2010, 'Puce', '1C6RD7MT6CS498763', '39133.00'),
+(7021, 'GMC', 'Suburban 1500', 1998, 'Goldenrod', 'WVWAA7AJXCW000039', '35123.00'),
+(7022, 'Honda', 'Accord', 1996, 'Indigo', 'WA1EV74L58D464646', '79809.00'),
+(7023, 'Pontiac', 'Grand Am', 1986, 'Violet', '1GKKRNED5FJ771763', '93682.00'),
+(7024, 'Chrysler', 'Cirrus', 1996, 'Orange', '2G4WE537551035917', '99330.00'),
+(7025, 'Mercury', 'Tracer', 1992, 'Teal', 'JM1NC2LF1F0173138', '92895.00'),
+(7026, 'Mazda', 'Miata MX-5', 2008, 'Khaki', 'JN1BY1AR1EM500708', '34322.00'),
+(7027, 'GMC', 'Rally Wagon 3500', 1994, 'Mauv', '5UXZV4C55D0298542', '52891.00'),
+(7028, 'Ford', 'F250', 2007, 'Blue', 'WVWAA7AH6AV962130', '37122.00'),
+(7029, 'Hyundai', 'Veracruz', 2009, 'Crimson', 'WAUNF98P97A429035', '86861.00'),
+(7030, 'Acura', 'RL', 2000, 'Orange', 'WP0AB2A86CU024069', '85541.00'),
+(7031, 'Ford', 'Econoline E150', 2001, 'Yellow', '1N6AD0CU1CC426853', '96557.00'),
+(7032, 'Mazda', 'Mazda6', 2012, 'Orange', 'ZFBCFABH7EZ869494', '69483.00'),
+(7033, 'Ford', 'EXP', 1987, 'Puce', '1GYFK16269R116289', '60628.00'),
+(7034, 'Mazda', 'Familia', 1985, 'Crimson', '1D7CW2GKXAS608652', '33277.00'),
+(7035, 'Lincoln', 'Navigator', 1998, 'Red', '1G6DE8E50D0279786', '77773.00'),
+(7036, 'Ford', 'Econoline E150', 1996, 'Fuscia', '19UUA65586A132062', '69589.00'),
+(7037, 'Ford', 'Ranger', 1995, 'Red', 'WAUDL74F16N043173', '49836.00'),
+(7038, 'GMC', 'Vandura 2500', 1994, 'Puce', '5J6TF1H53EL864056', '32663.00'),
+(7039, 'Dodge', 'Dakota', 2009, 'Green', '1G6YX36D565626023', '21802.00'),
+(7040, 'Dodge', 'Viper', 2010, 'Yellow', 'SAJWJ0FF7F8204843', '62171.00'),
+(7041, 'Porsche', '944', 1984, 'Mauv', '5TFBW5F11AX277687', '24934.00'),
+(7042, 'Ford', 'F-Series Super Duty', 2011, 'Crimson', '3GTU2YEJ8CG931874', '24479.00'),
+(7043, 'Mitsubishi', 'Raider', 2009, 'Goldenrod', '5TDBKRFH4ES401981', '99043.00'),
+(7044, 'Toyota', 'Highlander', 2004, 'Green', '1FTSW3A5XAE506259', '50175.00'),
+(7045, 'Nissan', 'Rogue', 2010, 'Teal', 'WBAUU33529A122202', '67529.00'),
+(7046, 'Volvo', 'V70', 2005, 'Turquoise', '1FTSX2B50AE562975', '35482.00'),
+(7047, 'Ford', 'Tempo', 1991, 'Aquamarine', '1FMEU6DE6AU160695', '70427.00'),
+(7048, 'Mitsubishi', 'Diamante', 1992, 'Blue', 'SCFFDAAE1BG363529', '85948.00'),
+(7049, 'Hyundai', 'Genesis', 2012, 'Pink', '1G4GD5G33EF374683', '39194.00'),
+(7050, 'Dodge', 'D350', 1993, 'Purple', 'SCBZB25E52C873300', '42361.00'),
+(7051, 'Ford', 'E250', 2009, 'Violet', 'JM3TB2MA0A0658528', '28723.00'),
+(7052, 'Infiniti', 'Q', 1998, 'Khaki', 'JM1CW2BL1D0349480', '84836.00'),
+(7053, 'Mercedes-Benz', 'G55 AMG', 2006, 'Mauv', '1C3CCBAB8DN693011', '34250.00'),
+(7054, 'BMW', 'M3', 1999, 'Purple', 'WP0AA2A89EK050523', '77269.00'),
+(7055, 'Subaru', 'Baja', 2003, 'Maroon', '2G61V5S34D9812328', '29018.00'),
+(7056, 'BMW', '5 Series', 2009, 'Purple', '19XFA1F32AE463720', '95395.00'),
+(7057, 'Chevrolet', 'Corvette', 2004, 'Green', 'WDDLJ7DB8EA023872', '21856.00'),
+(7058, 'Dodge', 'Viper', 2002, 'Maroon', 'YV4952CYXC1467508', '41938.00'),
+(7059, 'Mercedes-Benz', 'SLK-Class', 2009, 'Mauv', 'KL4CJFSB5EB919669', '99196.00'),
+(7060, 'Pontiac', 'Firefly', 1987, 'Green', 'WBAPH7C59AA994289', '95080.00'),
+(7061, 'Toyota', 'Tundra', 2007, 'Goldenrod', 'NM0KS9BN0AT202477', '56616.00'),
+(7062, 'Alfa Romeo', '164', 1995, 'Red', '5GAKRCKD4DJ179418', '47209.00'),
+(7063, 'Suzuki', 'SJ', 1992, 'Blue', 'TRUVD38J991575901', '44803.00'),
+(7064, 'Hyundai', 'Elantra', 1998, 'Crimson', '4T1BF1FK3DU688852', '74735.00'),
+(7065, 'Jeep', 'Compass', 2012, 'Teal', 'JTHDU1EFXA5575279', '71534.00'),
+(7066, 'Volvo', 'C30', 2012, 'Fuscia', '1FBNE3BL0AD610332', '43228.00'),
+(7067, 'Volvo', 'C70', 2004, 'Red', '1G6KS54Y93U944105', '78806.00'),
+(7068, 'Porsche', 'Boxster', 2002, 'Puce', '1C3BCBFG1CN550514', '45486.00'),
+(7069, 'Saab', '900', 1995, 'Aquamarine', 'JTHHP5BC7F5612824', '79451.00'),
+(7070, 'Buick', 'Century', 2003, 'Pink', 'JN1CV6AP4AM910485', '27317.00'),
+(7071, 'Mazda', 'Mazda6 5-Door', 2006, 'Yellow', '5N1AN0NU6EN632945', '63688.00'),
+(7072, 'Mercedes-Benz', 'S-Class', 2010, 'Aquamarine', '1HGCP2E32AA931071', '92663.00'),
+(7073, 'BMW', 'X3', 2005, 'Fuscia', '1FAHP3ENXAW020815', '72392.00'),
+(7074, 'Mercedes-Benz', 'W201', 1993, 'Goldenrod', 'WAUMV94E98N297469', '49382.00'),
+(7075, 'Ford', 'F150', 2000, 'Aquamarine', '5NPE24AF6FH477361', '90625.00'),
+(7076, 'Dodge', 'Challenger', 2008, 'Green', '5NPDH4AE8BH517564', '51498.00'),
+(7077, 'Toyota', 'Tacoma Xtra', 1995, 'Red', '1G6DJ1E30D0132000', '94327.00'),
+(7078, 'Alfa Romeo', '164', 1994, 'Yellow', 'WBSKG9C50DJ916556', '33458.00'),
+(7079, 'GMC', 'Safari', 1994, 'Puce', '1D7RE3BK1BS879790', '85604.00'),
+(7080, 'Saab', '900', 1998, 'Crimson', '2T3BF4DV4AW477659', '77498.00'),
+(7081, 'Ford', 'Escort', 1994, 'Yellow', 'KMHCT4AEXCU450785', '56262.00'),
+(7082, 'Nissan', 'GT-R', 2011, 'Pink', '1G6DK67V390472211', '55230.00'),
+(7083, 'GMC', 'Savana 3500', 1999, 'Fuscia', 'WBA4A7C51FG933482', '26908.00'),
+(7084, 'Dodge', 'Ram 2500 Club', 1998, 'Violet', '1C4RDJAG4FC802541', '75900.00'),
+(7085, 'Jaguar', 'XJ', 2011, 'Purple', '1G4GC5ER7DF691925', '94659.00'),
+(7086, 'Dodge', 'D150', 1992, 'Violet', 'JTJBC1BA9D2702613', '54736.00'),
+(7087, 'Audi', 'R8', 2010, 'Blue', 'WAUSG78E66A587950', '35266.00'),
+(7088, 'Mercedes-Benz', 'C-Class', 1999, 'Crimson', 'WAUWKAFR9AA080147', '76911.00'),
+(7089, 'Mercedes-Benz', 'G-Class', 2006, 'Puce', 'WAUEFAFL6CN081179', '66007.00'),
+(7090, 'Chevrolet', 'Express 1500', 2012, 'Teal', 'WAUDF78E87A316093', '89028.00'),
+(7091, 'Ford', 'Econoline E150', 2002, 'Teal', '5TDBW5G15ES771190', '77061.00'),
+(7092, 'Honda', 'Prelude', 1996, 'Turquoise', '1N6AA0EC3EN665602', '84573.00'),
+(7093, 'Mazda', 'CX-7', 2011, 'Red', '1N6AD0CU5FN076183', '23171.00'),
+(7094, 'GMC', 'Sonoma Club Coupe', 1996, 'Aquamarine', '1GYS3EEJ1DR010711', '65391.00'),
+(7095, 'Lexus', 'LX', 2009, 'Goldenrod', '4A4AP3AU2FE899399', '71627.00'),
+(7096, 'Mazda', '626', 1983, 'Mauv', 'WAUBF78E88A462700', '76466.00'),
+(7097, 'Mercury', 'Sable', 2003, 'Indigo', '1FADP3E26EL317544', '88668.00'),
+(7098, 'Lincoln', 'Navigator', 2012, 'Goldenrod', '1GD12ZCGXBF071844', '79588.00'),
+(7099, 'Jeep', 'Grand Cherokee', 1993, 'Green', 'WAUEH48H97K395565', '27339.00'),
+(7100, 'Mercury', 'Topaz', 1987, 'Aquamarine', '3VW8S7AT5FM174423', '63665.00'),
+(7101, 'Mercury', 'Topaz', 1986, 'Yellow', 'JM1NC2LF3C0243668', '81128.00'),
+(7102, 'Nissan', '200SX', 1995, 'Aquamarine', 'WDCGG0EB0EG779235', '24899.00'),
+(7103, 'Mitsubishi', 'Mirage', 1989, 'Khaki', 'WBAVC73588A364568', '53048.00'),
+(7104, 'Chevrolet', 'Camaro', 1967, 'Crimson', 'JM1CR2W32A0175402', '46215.00'),
+(7105, 'Dodge', 'Ram Van B250', 1992, 'Teal', 'KMHTC6AD5CU574787', '85001.00'),
+(7106, 'Lexus', 'SC', 1995, 'Turquoise', '19UUA65596A983206', '54158.00'),
+(7107, 'Toyota', 'Tercel', 1994, 'Crimson', 'WBALL5C54EP276816', '88970.00'),
+(7108, 'Mercedes-Benz', 'G55 AMG', 2006, 'Pink', '1GYS4CEF9DR977354', '28338.00'),
+(7109, 'Nissan', 'Altima', 2009, 'Crimson', '1G6DD67V890882495', '72228.00'),
+(7110, 'Ford', 'F350', 2011, 'Violet', '2B3CA3CV1AH440195', '74765.00'),
+(7111, 'Bentley', 'Arnage', 2007, 'Green', '2C3CCAKT6CH295353', '25454.00'),
+(7112, 'Subaru', 'XT', 1991, 'Red', 'WBAYE4C55ED580989', '43710.00'),
+(7113, 'Audi', 'S8', 2006, 'Violet', 'KNDPB3A28D7850028', '55580.00'),
+(7114, 'Chrysler', 'Voyager', 2001, 'Goldenrod', '3LNDL2L3XCR418897', '68277.00'),
+(7115, 'Land Rover', 'Discovery', 2001, 'Pink', 'JTHBL5EF1B5956148', '53691.00'),
+(7116, 'Oldsmobile', 'Custom Cruiser', 1992, 'Blue', '5UXFG43508L503895', '39293.00'),
+(7117, 'Ford', 'Festiva', 1989, 'Yellow', 'JTEBU4BF7AK826366', '72152.00'),
+(7118, 'Honda', 'S2000', 2002, 'Green', '1G6DL8EV8A0622961', '43052.00'),
+(7119, 'Hyundai', 'Elantra', 2009, 'Aquamarine', 'WBAEW53483P970784', '45785.00'),
+(7120, 'Pontiac', 'Grand Prix', 2007, 'Maroon', 'WBADT63441C326651', '43020.00'),
+(7121, 'Mitsubishi', 'Challenger', 2003, 'Red', '4T1BF1FK8CU722783', '63877.00'),
+(7122, 'Cadillac', 'XLR', 2009, 'Goldenrod', 'JM1CW2BL7E0565027', '64546.00'),
+(7123, 'Mercedes-Benz', 'E-Class', 2009, 'Purple', '4T1BF1FK8EU598842', '23103.00'),
+(7124, 'Land Rover', 'Discovery', 2005, 'Maroon', '3GYFNBE36ES131311', '53394.00'),
+(7125, 'Mitsubishi', 'Lancer Evolution', 2008, 'Blue', 'WAUHGAFC9DN171017', '95771.00'),
+(7126, 'Chrysler', 'Town & Country', 2003, 'Crimson', 'JH4NA21694T377379', '85782.00'),
+(7127, 'BMW', 'M5', 2003, 'Fuscia', 'WBSDE93461B811029', '92573.00'),
+(7128, 'Mercury', 'Capri', 1993, 'Indigo', 'WAULT68EX5A009116', '50805.00'),
+(7129, 'Chevrolet', 'Camaro', 1974, 'Teal', '3D73Y3CL2BG131478', '50622.00'),
+(7130, 'Volkswagen', 'Phaeton', 2004, 'Crimson', 'JN8AS1MU6BM519460', '94173.00'),
+(7131, 'GMC', 'Acadia', 2012, 'Orange', '2G4GL5EX4E9780439', '44569.00'),
+(7132, 'Kia', 'Amanti', 2008, 'Crimson', '1FMJU1G50AE724557', '34814.00'),
+(7133, 'Hyundai', 'Santa Fe', 2004, 'Red', 'WA1LFBFP2CA670010', '79377.00'),
+(7134, 'Scion', 'xD', 2010, 'Puce', 'JH4KA96683C202060', '50273.00'),
+(7135, 'Volkswagen', 'Passat', 2002, 'Khaki', '3VW1K7AJ7FM295177', '45142.00'),
+(7136, 'Suzuki', 'SJ', 1988, 'Red', '1G6DP8E39D0427085', '99851.00'),
+(7137, 'Dodge', 'Ram Van 1500', 1995, 'Mauv', 'YV1902AH3B1232770', '43673.00'),
+(7138, 'Mazda', 'CX-7', 2010, 'Indigo', 'JN8AE2KP2E9863837', '59896.00'),
+(7139, 'Buick', 'LeSabre', 2002, 'Fuscia', 'SAJWA1CB4CL146044', '99994.00'),
+(7140, 'Pontiac', 'Grand Prix', 2002, 'Teal', 'WAUAFAFL5EN010055', '66407.00'),
+(7141, 'Lexus', 'SC', 1998, 'Puce', 'WA1MMAFE2AD510109', '24602.00'),
+(7142, 'Scion', 'xB', 2008, 'Mauv', '1G6DX67D280665893', '85095.00'),
+(7143, 'Scion', 'tC', 2005, 'Goldenrod', '5N1AR2MM6EC404747', '88374.00'),
+(7144, 'Toyota', 'TundraMax', 2010, 'Blue', 'WBA1F5C51EV602646', '28938.00'),
+(7145, 'Chevrolet', 'Corvette', 1964, 'Turquoise', '1N4AL3AP5DC892782', '60145.00'),
+(7146, 'Chevrolet', 'S10', 1997, 'Maroon', 'WBABD33464J866246', '98536.00'),
+(7147, 'Mazda', '626', 1992, 'Khaki', 'WAUEV94F18N575049', '90484.00'),
+(7148, 'Oldsmobile', 'Cutlass Supreme', 1992, 'Indigo', '2HNYD2H21DH787187', '39714.00'),
+(7149, 'Lamborghini', 'Gallardo', 2004, 'Mauv', 'WVWBB7AJXDW310856', '46680.00'),
+(7150, 'Honda', 'CR-V', 2005, 'Blue', '1G4HR54K81U761074', '70421.00'),
+(7151, 'Plymouth', 'Prowler', 1997, 'Mauv', '1G6DP577350159926', '99138.00'),
+(7152, 'GMC', 'Canyon', 2012, 'Turquoise', '2T2BC1BA9FC325963', '57442.00'),
+(7153, 'Lexus', 'RX Hybrid', 2012, 'Teal', 'WVGAV7AX6BW201584', '69404.00'),
+(7154, 'Ford', 'Expedition', 2005, 'Violet', '1C6RD7FP7CS842035', '66061.00'),
+(7155, 'Mercedes-Benz', 'SL-Class', 1991, 'Mauv', '1N4AA5AP2AC224922', '45042.00'),
+(7156, 'Toyota', 'Prius', 2010, 'Indigo', 'WBAUL7C56BV948284', '97635.00'),
+(7157, 'Volkswagen', 'Eurovan', 1999, 'Green', 'JTEBU4BF8CK094137', '96915.00'),
+(7158, 'Chevrolet', 'Tahoe', 2001, 'Aquamarine', '19UUA662X5A326157', '60930.00'),
+(7159, 'Chevrolet', 'Aveo', 2010, 'Maroon', 'WAUAH74F16N155945', '51702.00'),
+(7160, 'Volkswagen', 'Passat', 2001, 'Aquamarine', '5J8TB3H35FL635313', '80432.00'),
+(7161, 'Mitsubishi', 'Eclipse', 2011, 'Indigo', '1C4RDJEG9FC355022', '69637.00'),
+(7162, 'Toyota', '4Runner', 2009, 'Maroon', 'WA1CFBFP4CA903062', '73722.00'),
+(7163, 'BMW', 'X5 M', 2011, 'Orange', '3GYFNFE34ES834381', '78839.00'),
+(7164, 'Mazda', 'Mazdaspeed 3', 2011, 'Yellow', 'WBY2Z2C54EV565376', '82737.00'),
+(7165, 'Kia', 'Optima', 2002, 'Orange', 'WAUDFAFC0DN607917', '24113.00'),
+(7166, 'Chevrolet', 'Tahoe', 2001, 'Khaki', 'SALFR2BG3DH943828', '23706.00'),
+(7167, 'Volkswagen', 'Touareg', 2010, 'Indigo', '1G4PP5SK1F4999859', '50308.00'),
+(7168, 'Dodge', 'Ram 1500 Club', 1996, 'Aquamarine', '5N1BA0ND7FN470647', '92760.00'),
+(7169, 'Nissan', 'Xterra', 2006, 'Blue', 'KNDJT2A14A7439354', '58840.00'),
+(7170, 'Ford', 'Ranger', 1990, 'Purple', '2C3CDXCT8EH952588', '62290.00'),
+(7171, 'Lincoln', 'Navigator', 2010, 'Indigo', '3C4PDCEG1FT287628', '80460.00'),
+(7172, 'Honda', 'Civic', 1997, 'Green', '1C3BC6EV2AN674781', '89349.00'),
+(7173, 'Cadillac', 'CTS', 2010, 'Mauv', 'WBAPK7C51BF344202', '75416.00'),
+(7174, 'Ford', 'Econoline E150', 2001, 'Pink', '1G6AT5S39E0110104', '94144.00'),
+(7175, 'Kia', 'Sportage', 1996, 'Violet', 'WBAUP9C57CV354188', '84467.00'),
+(7176, 'Jeep', 'Grand Cherokee', 2009, 'Mauv', 'WDCGG0EB2DG810225', '68874.00'),
+(7177, 'BMW', 'Z4 M', 2006, 'Green', '3VWF17AT0FM715856', '67127.00'),
+(7178, 'Mercury', 'Cougar', 1997, 'Blue', '5N1AA0NE7FN703494', '79758.00'),
+(7179, 'Volkswagen', 'Jetta III', 1995, 'Crimson', '3C3CFFER3ET781309', '29194.00'),
+(7180, 'GMC', 'Sonoma', 1992, 'Khaki', 'WAUEFBFL6BN769686', '54637.00'),
+(7181, 'Mitsubishi', 'Lancer', 2005, 'Teal', '1G6DP1EDXB0209539', '45315.00'),
+(7182, 'Volvo', 'V70', 2007, 'Turquoise', '1D4PU4GK5AW332907', '38526.00'),
+(7183, 'Dodge', 'Ram 3500', 2009, 'Aquamarine', 'WA1WMAFE2CD489600', '34747.00'),
+(7184, 'Jaguar', 'XK Series', 1997, 'Puce', '1G6DN56S550533013', '65740.00'),
+(7185, 'Suzuki', 'Forenza', 2008, 'Maroon', '19XFA1E69BE288072', '31836.00'),
+(7186, 'Lexus', 'ES', 1989, 'Turquoise', 'WBSWD93578P195455', '94439.00'),
+(7187, 'Mazda', 'B-Series Plus', 1999, 'Mauv', 'WAUEG94F16N981579', '59503.00'),
+(7188, 'Ford', 'Excursion', 2002, 'Pink', 'WBAPK5C56BA984617', '24977.00'),
+(7189, 'Mazda', 'Mazda6', 2003, 'Purple', '5J6TF3H52FL961195', '24833.00'),
+(7190, 'Suzuki', 'Equator', 2010, 'Purple', 'KMHFG4JG2DA950784', '33892.00'),
+(7191, 'Oldsmobile', 'Toronado', 1992, 'Blue', 'JN8AZ2KR9CT766673', '97886.00'),
+(7192, 'BMW', 'M3', 2002, 'Green', '3VWKX8AJ4BM333826', '21911.00'),
+(7193, 'Ford', 'Ranger', 2002, 'Pink', 'WA1UFAFL5FA114354', '30694.00'),
+(7194, 'Hyundai', 'Elantra', 2008, 'Turquoise', 'WAUKG78E75A636412', '87624.00'),
+(7195, 'Fairthorpe', 'Rockette', 1960, 'Blue', '1HGCR6F3XEA957472', '31668.00'),
+(7196, 'Lincoln', 'Blackwood', 2003, 'Fuscia', '3C4PDDEG1ET004259', '69177.00'),
+(7197, 'Toyota', 'Ipsum', 2000, 'Puce', 'WAUFEAFM9DA179955', '48760.00'),
+(7198, 'Bentley', 'Continental GT', 2012, 'Pink', 'JHMGE8G22AC946637', '51218.00'),
+(7199, 'Acura', 'NSX', 2001, 'Maroon', '5GAEV13788J459774', '55393.00'),
+(7200, 'Hyundai', 'XG350', 2002, 'Yellow', '3GYFK12229G923494', '53556.00');
 
 -- --------------------------------------------------------
 
@@ -423,7 +590,7 @@ CREATE TABLE IF NOT EXISTS `region` (
   `region_name` char(30) DEFAULT NULL,
   `region_manager` char(50) DEFAULT NULL,
   PRIMARY KEY (`region_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `region`
@@ -445,11 +612,11 @@ DROP TABLE IF EXISTS `salesperson`;
 CREATE TABLE IF NOT EXISTS `salesperson` (
   `emp_id` int(11) NOT NULL,
   `store_id` int(11) DEFAULT NULL,
-  `title` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `title` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `salary` int(11) DEFAULT NULL,
   PRIMARY KEY (`emp_id`),
   KEY `store_id` (`store_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `salesperson`
@@ -508,7 +675,7 @@ CREATE TABLE IF NOT EXISTS `store` (
   `region_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`store_id`),
   KEY `region_id` (`region_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `store`
@@ -537,81 +704,23 @@ CREATE TABLE IF NOT EXISTS `transaction` (
   `emp_id` int(11) DEFAULT NULL,
   `product_id` int(11) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL,
-  `product_quantity` int(11) DEFAULT NULL,
-  `price` double DEFAULT NULL,
+  `car_price` double DEFAULT NULL,
+  `car_brand` char(40) DEFAULT NULL,
+  `car_model` varchar(20) DEFAULT NULL,
+  `car_model_year` int(11) DEFAULT NULL,
+  `vin` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`order_id`),
   KEY `emp_id` (`emp_id`),
-  KEY `product_id` (`product_id`),
   KEY `customer_id` (`customer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- 转存表中的数据 `transaction`
 --
 
-INSERT INTO `transaction` (`order_id`, `order_date`, `emp_id`, `product_id`, `customer_id`, `product_quantity`, `price`) VALUES
-(8001, '2014-11-01', 3002, 7001, 4037, 1, 10),
-(8002, '2014-09-21', 3005, 7002, 4038, 2, 11),
-(8003, '2014-01-01', 3008, 7001, 4039, 3, 10),
-(8004, '2014-02-05', 3009, 7002, 4040, 4, 11),
-(8005, '2014-03-08', 3012, 7005, 4041, 5, 5),
-(8006, '2014-04-15', 3015, 7006, 4042, 1, 670),
-(8007, '2014-05-21', 3031, 7007, 4046, 1, 25),
-(8008, '2014-06-25', 3032, 7008, 4047, 2, 50),
-(8009, '2014-07-28', 3019, 7009, 4048, 5, 80),
-(8010, '2014-08-15', 3020, 7010, 4049, 2, 60),
-(8011, '2014-09-10', 3023, 7001, 4001, 3, 10),
-(8012, '2014-10-25', 3026, 7001, 4002, 3, 10),
-(8013, '2014-11-02', 3003, 7013, 4003, 2, 150),
-(8014, '2014-12-05', 3004, 7014, 4004, 1, 20),
-(8015, '2014-01-09', 3010, 7015, 4005, 4, 66),
-(8016, '2014-01-15', 3013, 7016, 4006, 1, 2),
-(8017, '2014-01-13', 3014, 7017, 4007, 2, 45),
-(8018, '2014-07-25', 3021, 7018, 4008, 5, 30),
-(8019, '2014-07-15', 3024, 7019, 4009, 5, 145),
-(8020, '2014-07-14', 3025, 7020, 4010, 5, 2),
-(8021, '2014-08-14', 3001, 7021, 4011, 3, 55),
-(8022, '2014-08-14', 3006, 7022, 4012, 2, 14),
-(8023, '2014-08-14', 3007, 7023, 4013, 1, 12),
-(8024, '2014-08-14', 3011, 7001, 4014, 2, 10),
-(8025, '2014-10-25', 3016, 7021, 4015, 1, 55),
-(8026, '2014-10-25', 3028, 7022, 4016, 1, 14),
-(8027, '2014-10-25', 3029, 7027, 4017, 1, 30),
-(8028, '2014-07-24', 3030, 7028, 4018, 2, 95),
-(8029, '2014-04-25', 3017, 7029, 4019, 1, 55),
-(8030, '2014-03-25', 3018, 7030, 4020, 1, 72),
-(8031, '2014-06-25', 3022, 7028, 4021, 1, 95),
-(8032, '2014-01-01', 3027, 7028, 4022, 4, 95),
-(8033, '2014-01-01', 3002, 7028, 4023, 4, 95),
-(8034, '2014-09-30', 3005, 7017, 4024, 1, 45),
-(8035, '2014-02-28', 3008, 7018, 4013, 2, 30),
-(8036, '2014-03-05', 3009, 7019, 4014, 2, 145),
-(8037, '2014-04-04', 3002, 7006, 4015, 3, 670),
-(8038, '2014-01-18', 3005, 7007, 4016, 5, 25),
-(8039, '2014-12-22', 3008, 7006, 4017, 1, 670),
-(8040, '2014-04-27', 3009, 7007, 4010, 7, 25),
-(8041, '2014-04-27', 3002, 7017, 4011, 1, 45),
-(8042, '2014-04-27', 3005, 7018, 4012, 2, 30),
-(8043, '2014-05-06', 3008, 7019, 4013, 5, 145),
-(8044, '2014-01-19', 3009, 7017, 4014, 9, 45),
-(8045, '2014-11-25', 3013, 7018, 4015, 3, 30),
-(8046, '2014-05-18', 3014, 7019, 4016, 5, 145),
-(8047, '2014-05-19', 3021, 7008, 4046, 4, 50),
-(8048, '2014-04-25', 3013, 7009, 4047, 4, 80),
-(8049, '2014-06-13', 3014, 7008, 4048, 4, 50),
-(8050, '2014-05-20', 3021, 7009, 4049, 2, 80),
-(8051, '2014-09-20', 3030, 7007, 4001, 3, 25),
-(8052, '2014-11-20', 3017, 7008, 4038, 6, 50),
-(8053, '2014-11-25', 3018, 7009, 4039, 5, 80),
-(8054, '2014-12-12', 3022, 7010, 4040, 2, 60),
-(8055, '2014-12-13', 3030, 7008, 4042, 1, 50),
-(8056, '2014-12-24', 3017, 7009, 4046, 1, 80),
-(8057, '2014-12-13', 3018, 7008, 4047, 2, 50),
-(8058, '2014-12-05', 3022, 7009, 4014, 5, 80),
-(8059, '2014-12-09', 3030, 7007, 4015, 3, 25),
-(8060, '2014-12-08', 3017, 7008, 4016, 4, 50),
-(8061, '2014-12-24', 3018, 7008, 4046, 1, 50),
-(8062, '2014-12-21', 3022, 7008, 4046, 2, 50);
+INSERT INTO `transaction` (`order_id`, `order_date`, `emp_id`, `product_id`, `customer_id`, `car_price`, `car_brand`, `car_model`, `car_model_year`, `vin`) VALUES
+(8001, '2019-11-01', 3002, 7000, 4037, 40000, 'Toyota', 'Tacoma', 2001, '1A2B3C4D5F6G7H8I9J'),
+(8004, '2019-11-24', 3033, 7006, 4001, 37056, 'Pontiac', 'Grand Am', 1996, 'JTHBK1GG7F2072272');
 
 --
 -- 限制导出的表
@@ -651,9 +760,8 @@ ALTER TABLE `store`
 -- 限制表 `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `salesperson` (`emp_id`),
-  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
-  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `employees` (`emp_id`),
+  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

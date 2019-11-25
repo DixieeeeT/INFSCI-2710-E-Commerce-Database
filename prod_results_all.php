@@ -38,32 +38,38 @@
 		<a class = "col" href="employees.php">Employee Login</a>&nbsp;&nbsp;
 	</header>
 	<br>
-	<h2 style = "text-align: center">View all the goods.</h2>
+	<h2 style = "text-align: center">View all the Cars.</h2>
 	<br>
 	<div class = "text-center">
 		<table class = "table">
 			<tr>
-				<td><b>Product ID</b></td>
-				<td><b>Product Name</b></td>
-				<td><b>In Stock</b></td>
-				<td><b>Price</b></td>
-				<td><b>Product Type</b></td>
+				<td><b>Car ID</b></td>
+				<td><b>Brand</b></td>
+				<td><b>Model</b></td>
+				<td><b>Model Year</b></td>
+				<td><b>Color</b></td>
+				<td><b>VIN</b></td>
+				<td><b>Price $</b><td>
 			</tr>
 		<?php
 			while($subject = mysqli_fetch_assoc($select_all_result)) {
 				$id = $subject['product_id'];
-				$name = $subject['product_name'];
-				$stock = $subject['quantity'];
-				$price = $subject['price'];
-				$type = $subject['product_type'];
+				$brand = $subject['car_brand'];
+				$model = $subject['car_model'];
+				$year = $subject['car_model_year'];
+				$color = $subject['car_color'];
+				$vin = $subject['vin'];
+				$price = $subject['car_price'];
 				
 				// output data from each row
 				echo "<tr>";
 				echo "<td>" . $id . "</td>";
-				echo "<td>" . $name . "</td>";
-				echo "<td>" . $stock . "</td>"; 
+				echo "<td>" . $brand . "</td>";
+				echo "<td>" . $model . "</td>"; 
+				echo "<td>" . $year . "</td>";
+				echo "<td>" . $color . "</td>";
+				echo "<td>" . $vin . "</td>";
 				echo "<td>" . $price . "</td>";
-				echo "<td>" . $type . "</td>";
 				echo "</tr>";
 			}
 		?>
