@@ -1,9 +1,9 @@
 <?php
-  // 1. Create a database connection
+  // Create a database connection
   $dbhost = "localhost";
-  $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
-  $dbname = "db"; // your db name here
+  $dbuser = "root"; // username here
+  $dbpass = "19960120toBY!!"; // password here
+  $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
   if(mysqli_connect_errno()) {
@@ -49,7 +49,7 @@
 		$store = $_POST['store_id'];
 		$salary = $_POST['salary'];
 		
-		$add_emp = "INSERT INTO Employees VALUES ('$id', '$name', '$street', '$city', '$state', '$zip', '$type')";
+		$add_emp = "INSERT INTO Employees VALUES ('$id', '$name', '$street', '$city', '$state', '$zip', '$email')";
 		
 		$add_emp_result = mysqli_query($connection, $add_emp);
 		if ($add_emp_result) {
@@ -118,6 +118,7 @@
 				<label for="email">Email: </label>
 				<input type="text" name="email" />
 			</div>
+			<br>
 			<p>
 				Assignment:
 			</p>
@@ -151,6 +152,6 @@
 </html>
 
 <?php
-	// 5. Close database connection
+	// Close database connection
 	mysqli_close($connection);
 ?>

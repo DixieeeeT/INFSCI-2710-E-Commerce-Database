@@ -1,9 +1,9 @@
 <?php
-  // 1. Create a database connection
+  // Create a database connection
   $dbhost = "localhost";
-  $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
-  $dbname = "db"; // your db name here
+  $dbuser = "root"; // username here
+  $dbpass = "19960120toBY!!"; // password here
+  $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
   if(mysqli_connect_errno()) {
@@ -17,9 +17,9 @@
 	$request = "";
 	if(isset($_POST['top_customers'])){
 		$request = "top_customers";
-		$data5_query = "SELECT Customer.customer_name AS 'Customer', Customer.customer_type AS 'Type', SUM((Transaction.product_quantity)*(Transaction.price)) AS 'Revenue' FROM Customer, Transaction WHERE Customer.customer_id=Transaction.customer_id GROUP BY customer_name ORDER BY Revenue DESC LIMIT 10";
-		$data5_result = mysqli_query($connection, $data5_query);
-		if (!$data5_result) {
+		$data_query = "SELECT Customer.customer_name AS 'Customer', Customer.customer_type AS 'Type', SUM(Transaction.car_price) AS 'Sales' FROM Customer, Transaction WHERE Customer.customer_id=Transaction.customer_id GROUP BY customer_name ORDER BY Sales DESC LIMIT 10";
+		$data_result = mysqli_query($connection, $data_query);
+		if (!$data_result) {
 			die("Database query failed."); // bad query syntax
 		}
 	}
@@ -50,22 +50,22 @@
 				echo "<tr>
 					<td><b>Customer</b></td>
 					<td><b>Type</b></td>
-					<td><b>Revenue</b></td>
+					<td><b>Sales</b></td>
 					</tr>";
 					break;
 		}
 		?>
 		<?php
-			while($subject = mysqli_fetch_assoc($data5_result)) {
-				$cust5 = $subject['Customer'];
-				$type5 = $subject['Type'];
-				$revenue5 = $subject['Revenue'];
+			while($subject = mysqli_fetch_assoc($data_result)) {
+				$customer = $subject['Customer'];
+				$type = $subject['Type'];
+				$sales = $subject['Sales'];
 				
 				// output data from each row
 				echo "<tr>";
-				echo "<td>" . $cust5 . "</td>";
-				echo "<td>" . $type5 . "</td>";
-				echo "<td>" . $revenue5 . "</td>"; 
+				echo "<td>" . $customer . "</td>";
+				echo "<td>" . $type . "</td>";
+				echo "<td>" . $sales . "</td>"; 
 				echo "</tr>";
 			}
 		?>
@@ -75,6 +75,6 @@
 </html>
 
 <?php
-	// 5. Close database connection
+	// Close database connection
 	mysqli_close($connection);
 ?>

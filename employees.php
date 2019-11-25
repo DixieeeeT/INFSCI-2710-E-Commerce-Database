@@ -1,9 +1,9 @@
 <?php
-  // 1. Create a database connection
+  // Create a database connection
   $dbhost = "localhost";
-  $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
-  $dbname = "db"; // your db name here
+  $dbuser = "root"; // username here
+  $dbpass = "19960120toBY!!"; // password here
+  $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
   if(mysqli_connect_errno()) {
@@ -35,9 +35,9 @@
 		<div class = "column text-center" style = "float: left; width: 50%">
 			<p><b>Please provide Employee ID for the below actions.</b></p>
 			<br>
-			<form action="addTrans.php" method="post">
+			<form action="viewTrans.php" method="post">
 				<input type="text" name="emp_id" placeholder = "Your Employee Id"/>
-				<input type="submit" name="login" value="Add Transaction" />
+				<input type="submit" name="login" value="View Transaction" />
 			</form>
 			<br/>
 			<form action="addCust.php" method="post">
@@ -47,7 +47,7 @@
 			<br/>
 			<form action="addInv.php" method="post">
 				<input type="text" name="emp_id" placeholder = "Your Employee Id" />
-				<input type="submit" name="login" value="Add/Edit Inventory"/>
+				<input type="submit" name="login" value="Add/Edit Cars"/>
 			</form>
 		</div>
 		<div class = "column text-center" style = "float: left; width: 50%">
@@ -63,6 +63,6 @@
 </html>
 
 <?php
-	// 5. Close database connection
+	// Close database connection
 	mysqli_close($connection);
 ?>

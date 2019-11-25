@@ -1,9 +1,9 @@
 <?php
-  // 1. Create a database connection
+  // Create a database connection
   $dbhost = "localhost";
-  $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
-  $dbname = "db"; // your db name here
+  $dbuser = "root"; // username here
+  $dbpass = "19960120toBY!!"; // password here
+  $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
   if(mysqli_connect_errno()) {
@@ -17,7 +17,7 @@
 	$request = "";
 	if(isset($_POST['business_products'])){
 		$request = "business_products";
-		$data4_query = "SELECT product_name, Customer.customer_name, quantity FROM Customer, Product, Transaction WHERE Transaction.customer_id=Customer.customer_id AND Transaction.product_id=Product.product_id AND Customer.customer_type='business' GROUP BY product_name";
+		$data4_query = "SELECT p.car_brand, c.customer_name, p.car_model FROM Customer c, Product p, Transaction t WHERE t.customer_id = c.customer_id AND t.product_id = p.car_id AND c.customer_type = 'Business' GROUP BY business_category";
 		$data4_result = mysqli_query($connection, $data4_query);
 		if (!$data4_result) {
 			die("Database query failed."); // bad query syntax

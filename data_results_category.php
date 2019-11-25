@@ -1,9 +1,9 @@
 <?php
-  // 1. Create a database connection
+  // Create a database connection
   $dbhost = "localhost";
-  $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
-  $dbname = "db"; // your db name here
+  $dbuser = "root"; // username here
+  $dbpass = "19960120toBY!!"; // password here
+  $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
   if(mysqli_connect_errno()) {
@@ -15,11 +15,11 @@
 ?>
 <?php
 	$request = "";
-	if(isset($_POST['product_categories'])){
-		$request = "product_categories";
-		$data2_query = "SELECT Product.product_type AS 'Product Type', SUM((Transaction.product_quantity)*(Transaction.price)) AS Revenue FROM Transaction, Product WHERE Product.product_id=Transaction.product_id GROUP BY Product.product_type ORDER BY Revenue DESC LIMIT 5";
-		$data2_result = mysqli_query($connection, $data2_query);
-		if (!$data2_result) {
+	if(isset($_POST['car_brand'])){
+		$request = "car_brand";
+		$data_query = "SELECT t.car_brand AS 'Car Brand', SUM(t.car_price) AS Sales FROM Transaction t GROUP BY t.car_brand ORDER BY `Sales` DESC LIMIT 10";
+		$data_result = mysqli_query($connection, $data_query);
+		if (!$data_result) {
 			die("Database query failed."); // bad query syntax
 		}
 	}
@@ -46,23 +46,23 @@
 		<table class = "table">
 		<?php 
 		switch ($request) {
-			case "product_categories":
+			case "car_brand":
 				echo "<tr>
-					<td><b>Product Type</b></td>
-					<td><b>Revenue</b></td>
+					<td><b>Car Brand</b></td>
+					<td><b>Sales</b></td>
 					</tr>";
 					break;
 		}
 		?>
 		<?php
-			while($subject = mysqli_fetch_assoc($data2_result)) {
-				$type2 = $subject['Product Type'];
-				$revenue2 = $subject['Revenue'];
+			while($subject = mysqli_fetch_assoc($data_result)) {
+				$brand = $subject['Car Brand'];
+				$sales = $subject['Sales'];
 				
 				// output data from each row
 				echo "<tr>";
-				echo "<td>" . $type2 . "</td>";
-				echo "<td>" . $revenue2 . "</td>";
+				echo "<td>" . $brand . "</td>";
+				echo "<td>" . $sales . "</td>";
 				echo "</tr>";
 			}
 		?>
@@ -72,6 +72,6 @@
 </html>
 
 <?php
-	// 5. Close database connection
+	// Close database connection
 	mysqli_close($connection);
 ?>

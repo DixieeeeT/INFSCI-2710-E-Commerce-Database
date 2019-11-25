@@ -12,12 +12,11 @@
          " (" . mysqli_connect_errno() . ")"
     );
   }
-?>
-<?php
-	if(isset($_POST['browse'])){
-		$select_all = "SELECT * FROM Product";
-		$select_all_result = mysqli_query($connection, $select_all);
-		if (!$select_all_result) {
+
+	if(isset($_POST['login'])){
+		$view_trans = "SELECT * FROM Transaction";
+		$view_trans_result = mysqli_query($connection, $view_trans);
+		if (!$view_trans_result) {
 			die("Database query failed."); // bad query syntax
 		}
 	}
@@ -38,38 +37,48 @@
 		<a class = "col" href="employees.php">Employee Login</a>&nbsp;&nbsp;
 	</header>
 	<br>
-	<h2 style = "text-align: center">View all the Cars.</h2>
+	<h2 style = "text-align: center">View all the Transactions.</h2>
 	<br>
 	<div class = "text-center">
 		<table class = "table">
 			<tr>
-				<td><b>Car ID</b></td>
+				<td><b>Order ID</b></td>
+                <td><b>Date</b></td>
+                <td><b>Salesperson</b></td>
+                <td><b>Car ID</b></td>
+                <td><b>Customer ID</b></td>
+            	<td><b>Price $</b></td>
 				<td><b>Car Brand</b></td>
-				<td><b>Model</b></td>
+				<td><b>Car Model</b></td>
 				<td><b>Model Year</b></td>
-				<td><b>Color</b></td>
 				<td><b>VIN</b></td>
-				<td><b>Price $</b><td>
+
 			</tr>
 		<?php
-			while($subject = mysqli_fetch_assoc($select_all_result)) {
-				$id = $subject['product_id'];
-				$brand = $subject['car_brand'];
-				$model = $subject['car_model'];
-				$year = $subject['car_model_year'];
-				$color = $subject['car_color'];
-				$vin = $subject['vin'];
-				$price = $subject['car_price'];
+			while($view_trans_arrs = mysqli_fetch_assoc($view_trans_result)) {
+                $orderid = $view_trans_arrs['order_id'];
+                $date = $view_trans_arrs['order_date'];
+                $empid = $view_trans_arrs['emp_id'];
+                $carid = $view_trans_arrs['product_id'];
+                $custid = $view_trans_arrs['customer_id'];
+            	$price = $view_trans_arrs['car_price'];
+				$brand = $view_trans_arrs['car_brand'];
+				$model = $view_trans_arrs['car_model'];
+				$year = $view_trans_arrs['car_model_year'];
+				$vin = $view_trans_arrs['vin'];
 				
 				// output data from each row
 				echo "<tr>";
-				echo "<td>" . $id . "</td>";
+                echo "<td>" . $orderid . "</td>";
+                echo "<td>" . $date . "</td>";
+                echo "<td>" . $empid . "</td>";
+                echo "<td>" . $carid . "</td>";
+                echo "<td>" . $custid . "</td>";
+                echo "<td>" . $price . "</td>";
 				echo "<td>" . $brand . "</td>";
 				echo "<td>" . $model . "</td>"; 
 				echo "<td>" . $year . "</td>";
-				echo "<td>" . $color . "</td>";
 				echo "<td>" . $vin . "</td>";
-				echo "<td>" . $price . "</td>";
 				echo "</tr>";
 			}
 		?>

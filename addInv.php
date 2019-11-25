@@ -1,9 +1,9 @@
 <?php
-  // 1. Create a database connection
+  // Create a database connection
   $dbhost = "localhost";
-  $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
-  $dbname = "db"; // your db name here
+  $dbuser = "root"; // username here
+  $dbpass = "19960120toBY!!"; // password here
+  $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
   if(mysqli_connect_errno()) {
@@ -37,14 +37,25 @@
 ?>
 <?php
 	if(isset($_POST['submit'])){
-		$id = $_POST['product_id'];
-		$name = $_POST['product_name'];
-		$quant = $_POST['quantity'];
-		$price = $_POST['price'];
-		$cost = $_POST['unit_cost'];
-		$type = $_POST['product_type'];
+		$carid = $_POST['product_id'];
+
+		// id has already existed check
+
+		$idcheck = "SELECT product_id FROM Product";
+		$idcheck_result = mysqli_query($connection, $idcheck);
+		$idcheck_result_arr = mysqli_fetch_assoc($idcheck_result);
+		if (in_array($carid, $idcheck_result_arr)) {
+			header("Location: id_existed.php");
+		}
+
+		$brand = $_POST['car_brand'];
+		$model = $_POST['car_model'];
+		$year = $_POST['car_model_year'];
+		$color = $_POST['car_color'];
+		$vin = $_POST['vin'];
+		$price = $_POST['car_price'];
 		
-		$add_cust = "INSERT INTO Product VALUES ('$id', '$name', '$quant', '$price', '$cost', '$type')";
+		$add_cust = "INSERT INTO Product (product_id, car_brand, car_model, car_model_year, car_color, vin, car_price) VALUES ('$carid', '$brand', '$model', '$year', '$color', '$vin', '$price')";
 		
 		$add_result = mysqli_query($connection, $add_cust);
 		if ($add_result) {
@@ -61,7 +72,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="jquery-3.4.1.js"></script>
 	<script src="ricks.js"></script>
-	<title>Add Inventory</title>
+	<title>Add New Car(s)</title>
 </head>
 <body>
 	<header class = "container" style = "text-align: center">
@@ -71,54 +82,69 @@
 		<a class = "col" href="employees.php">Employee Login</a>&nbsp;&nbsp;
 	</header>
 	<br>
-	<h2 style = "text-align: center">Add Inventory</h2>
+	<h2 style = "text-align: center">Add New Car(s)</h2>
 	<br>
 	<div class="text-center" style = "margin-top: 50px">
 		<form action="addInv.php" method="post">
 			<div>
-				<label for="product_id">Product ID: </label>
+				<label for="product_id">Car ID: </label>
 				<input type="text" name="product_id" value="<?php echo $new_id; ?>"/> 
 			</div>
 			<div>
-				<label for="product_name">Name: </label>
-				<input type="text" name="product_name" />
+				<label for="car_brand">Car Brand: </label>
+				<input type="text" name="car_brand" />
 			</div>
 			<div>
-				<label for="quantity">Quantity: </label>
-				<input type="text" name="quantity" />
+				<label for="car_model">Car Model: </label>
+				<input type="text" name="car_model" />
 			</div>
 			<div>
-				<label for="price">Price: </label>
-				<input type="text" name="price" />
+				<label for="car_model_year">Model Year: </label>
+				<input type="text" name="car_model_year" />
 			</div>
 			<div>
-				<label for="unit_cost">Unit Cost: </label>
-				<input type="text" name="unit_cost" />
+				<label for="vin">VIN: </label>
+				<input type="text" name="vin" />
 			</div>
 			<div>
-				<label for="product_type">Type: </label>
-				<select name="product_type">
-					<option value="baseball">Baseball</option>
-					<option value="basketball">Basketball</option>
-					<option value="cycling">Cycling</option>
-					<option value="football">Football</option>
-					<option value="hockey">Hockey</option>
-					<option value="skiing">Skiing</option>
-					<option value="soccer">Soccer</option>
-					<option value="tennis">Tennis</option>
-					<option value="volleyball">Volleyball</option>
+				<label for="car_price">Price $: </label>
+				<input type="text" name="car_price" />
+			</div>
+			<div>
+				<label for="car_color">Color: </label>
+				<select name="car_color">
+				<option value="">Select Color</option>
+						<option value="Aquamarine">Aquamarine</option>
+						<option value="Blue">Blue</option>
+						<option value="Crimson">Crimson</option>
+						<option value="Fuscia">Fuscia</option>
+						<option value="Goldenrod">Goldenrod</option>
+						<option value="Green">Green</option>
+						<option value="Indigo">Indigo</option>
+						<option value="Khaki">Khaki</option>
+						<option value="Maroon">Maroon</option>
+						<option value="Mauv">Mauv</option>
+						<option value="Orange">Orange</option>
+						<option value="Pink">Pink</option>
+						<option value="Puce">Puce</option>
+						<option value="Purple">Purple</option>
+						<option value="Red">Red</option>
+						<option value="Teal">Teal</option>
+						<option value="Turquoise">Turquoise</option>
+						<option value="Violet">Violet</option>
+						<option value="Yellow">Yellow</option>
 				</select>
 			</div>
 			<div><input type="submit" name="submit" value="Submit" /></div>
 		</form>
 		<br><br>
 		<h4>
-			To edit inventory, enter the product ID 
+			To edit existed car(s), Please enter the Car ID 
 			below and click "Search"
 		</h4>
 		<br>
 		<form action="editInv.php" method="post">
-			<label for="product_id">Product ID: </label>
+			<label for="product_id">Car ID: </label>
 			<input type="text" name="product_id" />
 			<input type="submit" name="search" value="Search" />
 		</form>
@@ -127,7 +153,7 @@
 </html>
 
 <?php
-	// 5. Close database connection
+	// Close database connection
 	mysqli_close($connection);
 ?>
 

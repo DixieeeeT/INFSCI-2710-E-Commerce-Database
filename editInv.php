@@ -1,9 +1,9 @@
 <?php
-  // 1. Create a database connection
+  // Create a database connection
   $dbhost = "localhost";
-  $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
-  $dbname = "db"; // your db name here
+  $dbuser = "root"; // username here
+  $dbpass = "19960120toBY!!"; // password here
+  $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
   if(mysqli_connect_errno()) {
@@ -18,30 +18,42 @@
 		$id = $_POST['product_id'];
 		$product_query = "SELECT * FROM Product WHERE product_id = $id";
 		
-		$product_result = mysqli_query($connection, $product_query);
-		if (!$product_result) {
+		$product_query_result = mysqli_query($connection, $product_query);
+		if (!$product_query_result) {
 			die("Database query failed."); // bad query syntax error
 		}
 		
-		$product_row = mysqli_fetch_assoc($product_result);
-		$id = $product_row['product_id'];
-		$name = $product_row['product_name'];
-		$quant = $product_row['quantity'];
-		$price = $product_row['price'];
-		$cost = $product_row['unit_cost'];
-		$type = $product_row['product_type'];
+		$product_arr = mysqli_fetch_assoc($product_query_result);
+		$carid = $product_arr['product_id'];
+
+		// id doesn't exist check
+
+		$idcheck = "SELECT product_id FROM Product";
+		$idcheck_result = mysqli_query($connection, $idcheck);
+		$idcheck_result_arr = mysqli_fetch_assoc($idcheck_result);
+		if (!in_array($carid, $idcheck_result_arr)) {
+			header("Location: id_not_existed.php");
+		}
+
+		$brand = $product_arr['car_brand'];
+		$model = $product_arr['car_model'];
+		$year = $product_arr['car_model_year'];
+		$color = $product_arr['car_color'];
+		$vin = $product_arr['vin'];
+		$price = $product_arr['car_price'];
 	}
 ?>
 <?php
 	if(isset($_POST['submit'])) {
-		$id2 = $_POST['product_id'];
-		$name2 = $_POST['product_name'];
-		$quant2 = $_POST['quantity'];
-		$price2 = $_POST['price'];
-		$cost2 = $_POST['unit_cost'];
-		$type2 = $_POST['product_type'];
+		$carid2 = $_POST['product_id'];
+		$brand2 = $_POST['car_brand'];
+		$model2 = $_POST['car_model'];
+		$year2 = $_POST['car_model_year'];
+		$color2 = $_POST['car_color'];
+		$vin2 = $_POST['vin'];
+		$price2 = $_POST['car_price'];
 		
-		$update_query = "UPDATE Product SET product_name = '$name2', quantity = '$quant2', price = '$price2', unit_cost = '$cost2', product_type = '$type2' WHERE product_id = '$id2'";
+		$update_query = "UPDATE Product SET car_brand = '$brand2', car_model = '$model2', car_model_year = '$year2', car_color = '$color2', vin = '$vin2', car_price = '$price2' WHERE product_id = '$carid2'";
 		
 		$update_result = mysqli_query($connection, $update_query);
 		
@@ -54,6 +66,8 @@
 			print_r($_POST);
 			die("Database query failed. " . mysqli_error($connection));
 		}
+
+		header("Location: editSuccess.php");
 	}
 ?>
 <!DOCTYPE html>
@@ -62,7 +76,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="jquery-3.4.1.js"></script>
 	<script src="ricks.js"></script>
-	<title>Edit Inventory</title>
+	<title>Edit Existed Car(s)</title>
 </head>
 <body>
 	<header class = "container" style = "text-align: center">
@@ -72,42 +86,56 @@
 		<a class = "col" href="employees.php">Employee Login</a>&nbsp;&nbsp;
 	</header>
 	<br>
-	<h2 style = "text-align: center">Edit Inventory</h2>
+	<h2 style = "text-align: center">Edit Existed Car(s)</h2>
 	<br>
 	<div class="text-center" style = "margin-top: 50px">
 		<form action="editInv.php" method="post">
 			<div>
-				<label for="product_id">Product ID: </label>
-				<input type="text" name="product_id" value="<?php echo $id;?>" /> 
+				<label for="product_id">Car ID: </label>
+				<input type="text" name="product_id" value="<?php echo $carid;?>" /> 
 			</div>
 			<div>
-				<label for="product_name">Name: </label>
-				<input type="text" name="product_name" value="<?php echo $name;?>" />
+				<label for="car_brand">Car Brand: </label>
+				<input type="text" name="car_brand" value="<?php echo $brand;?>" />
 			</div>
 			<div>
-				<label for="quantity">Quantity: </label>
-				<input type="text" name="quantity" value="<?php echo $quant;?>" />
+				<label for="car_model">Car Model: </label>
+				<input type="text" name="car_model" value="<?php echo $model;?>" />
 			</div>
 			<div>
-				<label for="price">Price: </label>
-				<input type="text" name="price" value="<?php echo $price;?>" />
+				<label for="car_model_year">Model Year: </label>
+				<input type="text" name="car_model_year" value="<?php echo $year;?>" />
 			</div>
 			<div>
-				<label for="unit_cost">Unit Cost: </label>
-				<input type="text" name="unit_cost" value="<?php echo $cost;?>" />
+				<label for="vin">VIN: </label>
+				<input type="text" name="vin" value="<?php echo $vin;?>" />
 			</div>
 			<div>
-				<label for="product_type">Type: </label>
-				<select name="product_type">
-					<option value="baseball"<?php echo ($type == 'baseball') ? 'selected="selected"': '';?>>Baseball</option>
-					<option value="basketball"<?php echo ($type == 'basketball') ? 'selected="selected"': '';?>>Basketball</option>
-					<option value="cycling"<?php echo ($type == 'cycling') ? 'selected="selected"': '';?>>Cycling</option>
-					<option value="football"<?php echo ($type == 'football') ? 'selected="selected"': '';?>>Football</option>
-					<option value="hockey"<?php echo ($type == 'hockey') ? 'selected="selected"': '';?>>Hockey</option>
-					<option value="skiing"<?php echo ($type == 'skiing') ? 'selected="selected"': '';?>>Skiing</option>
-					<option value="soccer"<?php echo ($type == 'soccer') ? 'selected="selected"': '';?>>Soccer</option>
-					<option value="tennis"<?php echo ($type == 'tennis') ? 'selected="selected"': '';?>>Tennis</option>
-					<option value="volleyball"<?php echo ($type == 'volleyball') ? 'selected="selected"': '';?>>Volleyball</option>
+				<label for="car_price">Price $: </label>
+				<input type="text" name="car_price" value="<?php echo $price;?>" />
+			</div>
+			<div>
+				<label for="car_color">Color: </label>
+				<select name="car_color">
+					<option value="Aquamarine"<?php echo ($color == 'Aquamarine') ? 'selected="selected"': '';?>>Aquamarine</option>
+					<option value="Blue"<?php echo ($color == 'Blue') ? 'selected="selected"': '';?>>Blue</option>
+					<option value="Crimson"<?php echo ($color == 'Crimson') ? 'selected="selected"': '';?>>Crimson</option>
+					<option value="Fuscia"<?php echo ($color == 'Fuscia') ? 'selected="selected"': '';?>>Fuscia</option>
+					<option value="Goldenrod"<?php echo ($color == 'Goldenrod') ? 'selected="selected"': '';?>>Goldenrod</option>
+					<option value="Green"<?php echo ($color == 'Green') ? 'selected="selected"': '';?>>Green</option>
+					<option value="Indigo"<?php echo ($color == 'Indigo') ? 'selected="selected"': '';?>>Indigo</option>
+					<option value="Khaki"<?php echo ($color == 'Khaki') ? 'selected="selected"': '';?>>Khaki</option>
+					<option value="Maroon"<?php echo ($color == 'Maroon') ? 'selected="selected"': '';?>>Maroon</option>
+					<option value="Mauv"<?php echo ($color == 'Mauv') ? 'selected="selected"': '';?>>Mauv</option>
+					<option value="Orange"<?php echo ($color == 'Orange') ? 'selected="selected"': '';?>>Orange</option>
+					<option value="Pink"<?php echo ($color == 'Pink') ? 'selected="selected"': '';?>>Pink</option>
+					<option value="Puce"<?php echo ($color == 'Puce') ? 'selected="selected"': '';?>>Puce</option>
+					<option value="Purple"<?php echo ($color == 'Purple') ? 'selected="selected"': '';?>>Purple</option>
+					<option value="Red"<?php echo ($color == 'Red') ? 'selected="selected"': '';?>>Red</option>
+					<option value="Teal"<?php echo ($color == 'Teal') ? 'selected="selected"': '';?>>Teal</option>
+					<option value="Turquoise"<?php echo ($color == 'Turquoise') ? 'selected="selected"': '';?>>Turquoise</option>
+					<option value="Violet"<?php echo ($color == 'Violet') ? 'selected="selected"': '';?>>Violet</option>
+					<option value="Yellow"<?php echo ($color == 'Yellow') ? 'selected="selected"': '';?>>Yellow</option>
 				</select>
 			</div>
 			<div><input type="submit" name="submit" value="Submit"></div>

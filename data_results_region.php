@@ -1,9 +1,9 @@
 <?php
-  // 1. Create a database connection
+  // Create a database connection
   $dbhost = "localhost";
-  $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
-  $dbname = "db"; // your db name here
+  $dbuser = "root"; // username here
+  $dbpass = "19960120toBY!!"; // password here
+  $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
   if(mysqli_connect_errno()) {
@@ -17,9 +17,9 @@
 	$request = "";
     if(isset($_POST['region_sales'])){
 		$request = "region_sales";
-		$data3_query = "SELECT Region.region_name AS Region, SUM((Transaction.product_quantity)*(Transaction.price)) AS Revenue FROM Transaction, Region, Salesperson, Store WHERE Transaction.emp_id=Salesperson.emp_id AND Salesperson.store_id=Store.store_id AND Store.region_id=Region.region_id GROUP BY Region.region_name";
-		$data3_result = mysqli_query($connection, $data3_query);
-		if (!$data3_result) {
+		$data_query = "SELECT Region.region_name AS Region, SUM(Transaction.car_price) AS Revenue FROM Transaction, Region, Salesperson, Store WHERE Transaction.emp_id=Salesperson.emp_id AND Salesperson.store_id=Store.store_id AND Store.region_id=Region.region_id GROUP BY Region.region_name";
+		$data_result = mysqli_query($connection, $data_query);
+		if (!$data_result) {
 			die("Database query failed."); // bad query syntax
 		}
     }
@@ -55,14 +55,14 @@
 		}
 		?>
 		<?php
-			while($subject = mysqli_fetch_assoc($data3_result)) {
-				$region3 = $subject['Region'];
-				$revenue3 = $subject['Revenue'];
+			while($subject = mysqli_fetch_assoc($data_result)) {
+				$region = $subject['Region'];
+				$revenue = $subject['Revenue'];
 				
 				// output data from each row
 				echo "<tr>";
-				echo "<td>" . $region3 . "</td>";
-				echo "<td>" . $revenue3 . "</td>";
+				echo "<td>" . $region . "</td>";
+				echo "<td>" . $revenue . "</td>";
 				echo "</tr>";
 			}
 		?>
@@ -72,6 +72,6 @@
 </html>
 
 <?php
-	// 5. Close database connection
+	// Close database connection
 	mysqli_close($connection);
 ?>

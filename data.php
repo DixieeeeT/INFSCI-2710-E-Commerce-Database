@@ -38,17 +38,17 @@
 		</h4>
 		<br><br>
 		<ul class="list-unstyled">
-			<li>
+			<!-- <li>
 				<form action="data_results_company.php" method="post">
 					<label for="company_sales">Total Company Sales and Profits</label>
 					<input type="submit" name="company_sales" value="Go"/>
 				</form>
 			</li>
-			<br/>
+			<br/> -->
 			<li>
 				<form action="data_results_category.php" method="post">
-					<label for="product_categories">Top 5 Product Categories by Sales</label>
-					<input type="submit" name="product_categories" value="Go"/>
+					<label for="car_brand">Top 10 Car Brand by Sales</label>
+					<input type="submit" name="car_brand" value="Go"/>
 				</form>
 			</li>
 			<br/>
@@ -59,13 +59,13 @@
 				</form>
 			</li>
 			<br/>
-			<li>
+			<!-- <li>
 				<form action="data_results_business.php" method="post">
 					<label for="business_products">Most Purchased Product by Each Business</label>
 					<input type="submit" name="business_products" value="Go"/>
 				</form>
 			</li>
-			<br/>
+			<br/> -->
 			<li>
 				<form action="data_results_sales.php" method="post">
 					<label for="top_customers">Top 10 Customers by Sales</label>
