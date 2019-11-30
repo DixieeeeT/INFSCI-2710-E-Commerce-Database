@@ -47,7 +47,7 @@ if (mysqli_connect_errno()) {
 	<br>
 	<h2 style="text-align: center">Data Aggregation</h2>
 	<br>
-	<div class="text-center" style="margin-top: 100px">
+	<div class="text-center" style="margin-top: 50px">
 		<h4>
 			Some data aggregations are available for viewing.<br><br>
 			Click the buttons below to view the most recent data.

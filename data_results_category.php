@@ -34,27 +34,14 @@ if (isset($_POST['car_brand'])) {
 </head>
 
 <body>
-	<header class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="customers.php">XXX's Cars</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="customers.php">Customer Interface</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="data.php">Data Aggregation</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="employees.php">Employee Login</a>
-					</li>
-				</ul>
-			</div>
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="data.php">Data Aggregation</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Top 10 Car Brands by Sales</li>
+			</ol>
 		</nav>
-	</header>
+	</div>
 	<br>
 	<h2 style="text-align: center">View Data Aggregation Result.</h2>
 	<br>
