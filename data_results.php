@@ -2,7 +2,7 @@
   // 1. Create a database connection
   $dbhost = "localhost";
   $dbuser = "root"; // your username here
-  $dbpass = "19960120toBY!!"; // your password here
+  $dbpass = "root"; // password here
   $dbname = "db"; // your db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded

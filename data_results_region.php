@@ -2,7 +2,7 @@
   // Create a database connection
   $dbhost = "localhost";
   $dbuser = "root"; // username here
-  $dbpass = "19960120toBY!!"; // password here
+  $dbpass = "root"; // password here
   $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
@@ -33,16 +33,31 @@
 	<title>Customer Interface</title>
 </head>
 <body>
-	<header class = "container" style = "text-align: center">
-		<h3 class = "col" style="display:inline">XXX's Cars</h3>&nbsp;&nbsp;
-		<a class = "col" href="customers.php">Customer Interface</a>&nbsp;&nbsp;
-		<a class = "col" href="data.php">Data Aggregation</a>&nbsp;&nbsp;
-		<a class = "col" href="employees.php">Employee Login</a>&nbsp;&nbsp;
+<header class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="customers.php">XXX's Cars</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="customers.php">Customer Interface</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="data.php">Data Aggregation</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="employees.php">Employee Login</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 	</header>
 	<br>
 	<h2 style = "text-align: center">View Data Aggregation Result.</h2>
 	<br>
-	<div class = "text-center">
+	<div class = "container text-center">
 		<table class = "table">
 		<?php 
 		switch ($request) {
