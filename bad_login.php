@@ -16,14 +16,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="customers.php">Customer Interface</a>
-					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="data.php">Data Aggregation</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="employees.php">Employee Login</a>
+						<a class="nav-link" href="startpage.php">Back to Start Page</a>
 					</li>
 				</ul>
 			</div>
@@ -32,7 +26,7 @@
 		<h1 class = "text-center" style = "margin-top: 200px">
 			<b>
 				Sorry, there was a problem logging you in. <br><br>
-				Please hit the back button in your browser and try again.
+				Please back to the start page and try again.
 			</b>
 		</h1>
 	</body>

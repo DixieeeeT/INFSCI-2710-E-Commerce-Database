@@ -2,7 +2,7 @@
   // Create a database connection
   $dbhost = "localhost";
   $dbuser = "root"; // username here
-  $dbpass = "root"; // password here
+  $dbpass = "19960120toBY!!"; // password here
   $dbname = "db"; // db name here
   $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
   // Test if connection succeeded
@@ -76,12 +76,14 @@
 	<title>Add Employee</title>
 </head>
 <body>
-	<header class = "container" style = "text-align: center">
-		<h3 class = "col" style="display:inline">XXX's Cars</h3>&nbsp;&nbsp;
-		<a class = "col" href="customers.php">Customer Interface</a>&nbsp;&nbsp;
-		<a class = "col" href="data.php">Data Aggregation</a>&nbsp;&nbsp;
-		<a class = "col" href="employees.php">Employee Login</a>&nbsp;&nbsp;
-	</header>
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="employees.php">Additional Actions</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Add User</li>
+			</ol>
+		</nav>
+	</div>
 	<br>
 	<h2 style = "text-align: center">Add Employee</h2>
 	<br>

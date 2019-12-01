@@ -2,7 +2,7 @@
 // Create a database connection
 $dbhost = "localhost";
 $dbuser = "root"; // username here
-$dbpass = "root"; // password here
+$dbpass = "19960120toBY!!"; // password here
 $dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
@@ -23,7 +23,12 @@ if (isset($_POST['login'])) {
 }
 ?>
 <?php
-$max_query = "SELECT MAX(product_id) FROM Product";
+$max_query = "SELECT MAX(product_id) AS MAXID FROM (
+    SELECT product_id
+    FROM product
+    UNION ALL
+    SELECT product_id
+    FROM transaction) foo";
 
 $max_result = mysqli_query($connection, $max_query);
 if (!$max_result) {
@@ -31,7 +36,7 @@ if (!$max_result) {
 }
 
 $max_row = mysqli_fetch_assoc($max_result);
-$max = $max_row["MAX(product_id)"];
+$max = $max_row["MAXID"];
 $new_id = $max + 1;
 ?>
 <?php
@@ -62,6 +67,8 @@ if (isset($_POST['submit'])) {
 	} else {
 		die("Database query failed. " . mysqli_error($connection));
 	}
+
+	header("Location: addSuccess.php");
 }
 ?>
 <!DOCTYPE html>
@@ -78,7 +85,7 @@ if (isset($_POST['submit'])) {
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="employees.php">Employee Login</a></li>
+				<li class="breadcrumb-item"><a href="employees.php">Additional Actions</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Add Cars</li>
 			</ol>
 		</nav>

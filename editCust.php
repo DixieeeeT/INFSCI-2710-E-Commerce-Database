@@ -2,7 +2,7 @@
 // Create a database connection
 $dbhost = "localhost";
 $dbuser = "root"; // username here
-$dbpass = "root"; // password here
+$dbpass = "19960120toBY!!"; // password here
 $dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
@@ -126,7 +126,7 @@ if (isset($_POST['submit'])) {
 	}
 
 	// Update Account
-	$update_account_query = "UPDATE Accounts SET balance = '$balance2'";
+	$update_account_query = "UPDATE Accounts SET balance = '$balance2' WHERE customer_id = '$id2'";
 	$update_account_result = mysqli_query($connection, $update_account_query);
 	if ($update_account_result) {
 		echo "Successfully updated account #" . $id2;
@@ -151,7 +151,7 @@ if (isset($_POST['submit'])) {
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="employees.php">Employee Login</a></li>
+				<li class="breadcrumb-item"><a href="employees.php">Additional Actions</a></li>
 				<li class="breadcrumb-item"><a href="addCust.php">Add Customer</a></li>
 				<li class="breadcrumb-item active" aria-current="editCust.php">Edit Customer</li>
 			</ol>

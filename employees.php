@@ -2,7 +2,7 @@
 // Create a database connection
 $dbhost = "localhost";
 $dbuser = "root"; // username here
-$dbpass = "root"; // password here
+$dbpass = "19960120toBY!!"; // password here
 $dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="js/jquery-3.4.1.js"></script>
 	<script src="js/ricks.js"></script>
-	<title>Employee Login</title>
+	<title>Additional Actions</title>
 </head>
 
 <body>
@@ -32,20 +32,23 @@ if (mysqli_connect_errno()) {
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="customers.php">Customer Interface</a>
+						<a class="nav-link" href="customers.php">Main Page</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="data.php">Data Aggregation</a>
 					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="employees.php">Additional Actions</a>
+					</li>
 					<li class="nav-item">
-						<a class="nav-link active" href="employees.php">Employee Login</a>
+						<a class="nav-link" href="startpage.php">Back to Start Page</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
 	</header>
 	<br>
-	<h2 style="text-align: center">Employee Login</h2>
+	<h2 style="text-align: center">Additional Actions</h2>
 	<br>
 	<div class="container">
 		<div class="row text-center" style="margin-top: 50px">

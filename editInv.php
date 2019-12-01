@@ -2,7 +2,7 @@
 // Create a database connection
 $dbhost = "localhost";
 $dbuser = "root"; // username here
-$dbpass = "root"; // password here
+$dbpass = "19960120toBY!!"; // password here
 $dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="employees.php">Employee Login</a></li>
+				<li class="breadcrumb-item"><a href="employees.php">Additional Actions</a></li>
 				<li class="breadcrumb-item"><a href="addInv.php">Add Car</a></li>
 				<li class="breadcrumb-item active" aria-current="editInv.php">Edit Car</li>
 			</ol>

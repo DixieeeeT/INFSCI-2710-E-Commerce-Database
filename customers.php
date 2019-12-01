@@ -1,15 +1,25 @@
 <?php
-// 1. Create a database connection
+// Create a database connection
 $dbhost = "localhost";
-$dbuser = "root"; // your username here
-$dbpass = "root"; // password here
-$dbname = "db"; // your db name here
+$dbuser = "root"; // username here
+$dbpass = "19960120toBY!!"; // password here
+$dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
 if (mysqli_connect_errno()) {
 	die("Database connection failed: " .
 		mysqli_connect_error() .
 		" (" . mysqli_connect_errno() . ")");
+}
+if (isset($_POST['employee'])) {
+	$login_id = $_POST['empid'];
+	$login_query = "SELECT emp_id FROM Employees WHERE emp_id = '$login_id'";
+	$login_result = mysqli_query($connection, $login_query);
+	if (!$login_result) {
+		die("Database query failed."); // bad query syntax
+	} else if (mysqli_num_rows($login_result) != 1) {
+		header("Location: bad_login.php");
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +29,7 @@ if (mysqli_connect_errno()) {
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="js/jquery-3.4.1.js"></script>
 	<script src="js/ricks.js"></script>
-	<title>Customer Interface</title>
+	<title>Employee Interface</title>
 </head>
 
 <body>
@@ -32,29 +42,31 @@ if (mysqli_connect_errno()) {
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="customers.php">Customer Interface</a>
+						<a class="nav-link" href="customers.php">Main Page</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="data.php">Data Aggregation</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="employees.php">Employee Login</a>
+						<a class="nav-link" href="employees.php">Additional Actions</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="startpage.php">Back to Start Page</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
 	</header>
 	<br>
-	<h2 style="text-align: center">Welcome to XXX's Cars!</h2>
+	<h2 style="text-align: center">This is employee main page</h2>
 	<br>
-	<h3 style="text-align: center">Choose One Option!</h3>
 	<div class="container">
 		<div class="row" style="margin-top: 50px">
-			<div class="column card" style="float: left; width: 33.33%; height: 20%;">
+			<div class="column card text-center" style="float: left; width: 33.33%; height: 20%;">
 				<div class="card-body">
 					<form action="account.php" method="post">
 						<p>
-							<b>View By Account:</b>
+							<b>Proceed Purchase:</b>
 						</p>
 						<div class="form-group">
 							<label for="customer_id">Customer ID: </label>
@@ -69,18 +81,18 @@ if (mysqli_connect_errno()) {
 			<div class="column card text-center" style="float: left; width: 33.33%; height: 20%;">
 				<div class="card-body">
 					<p>
-						<b>View All the Merchandise:</b>
+						<b>View All the Stocks:</b>
 					</p>
-					<form action="prod_results_all.php" method="post">
+					<form action="prod_results_all_em.php" method="post">
 						<input class="btn btn-primary" type="submit" name="browse" value="Browse">
 					</form>
 				</div>
 			</div>
-			<div class="column card" style="float: left; width: 33.33%;">
+			<div class="column card text-center" style="float: left; width: 33.33%;">
 				<div class="card-body">
-					<form action="prod_results_search.php" method="post">
+					<form action="prod_results_search_em.php" method="post">
 						<p>
-							<b>Search for Your Ideal Car:</b>
+							<b>Search for Stock(s) with requirement(s):</b>
 						</p>
 						<div class="form-group">
 							<label for="product_id">Car Id:</label>
@@ -136,6 +148,6 @@ if (mysqli_connect_errno()) {
 </html>
 
 <?php
-// 5. Close database connection
+// Close database connection
 mysqli_close($connection);
 ?>

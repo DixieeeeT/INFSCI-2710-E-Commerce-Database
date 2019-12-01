@@ -1,9 +1,9 @@
 <?php
-// 1. Create a database connection
+// Create a database connection
 $dbhost = "localhost";
-$dbuser = "root"; // your username here
-$dbpass = "root"; // password here
-$dbname = "db"; // your db name here
+$dbuser = "root"; // username here
+$dbpass = "19960120toBY!!"; // password here
+$dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
 if (mysqli_connect_errno()) {
@@ -72,8 +72,8 @@ if (isset($_POST['submit'])) {
 	}
 
 	// Decide if home or business, and create appropriately
-	if ($type == 'home') {
-		$add_home = "INSERT INTO Customer_Home VALUES ('$id', '$marriage', '$gender', '$age', '$home_income')";
+	if ($type == 'Home') {
+		$add_home = "INSERT INTO Customer_Home VALUES ('$id', '$type','$marriage', '$gender', '$age', '$home_income')";
 		$home_result = mysqli_query($connection, $add_home);
 		if ($home_result) {
 			echo "Successfully created home customer.";
@@ -89,6 +89,8 @@ if (isset($_POST['submit'])) {
 			die("Database query failed. " . mysqli_error($connection));
 		}
 	}
+
+	header("Location: addSuccess.php");
 }
 ?>
 <!DOCTYPE html>
@@ -105,7 +107,7 @@ if (isset($_POST['submit'])) {
 	<div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="employees.php">Employee Login</a></li>
+				<li class="breadcrumb-item"><a href="employees.php">Additional Actions</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Add Customer</li>
 			</ol>
 		</nav>
@@ -140,25 +142,25 @@ if (isset($_POST['submit'])) {
 								</div>
 								<div class="form-group col-md-2">
 									<label for="customer_address_zip">Zip: </label>
-									<input class="form-control" type="text" name="customer_address_zip" />
+									<input class="form-control" type="text" name="customer_address_zip" maxlength="5"/>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="customer_type">Type: </label>
 								<select class="form-control" name="customer_type" id="customer_type">
-									<option value="home">Home</option>
-									<option value="business">Business</option>
+									<option value="Home">Home</option>
+									<option value="Business">Business</option>
 								</select>
 							</div>
 							<div class="form-group" id="home">
 								<label for="gender">Gender: </label>
-								<input class="form-control" type="text" name="gender" /><br />
+								<input class="form-control" type="text" name="gender" placeholder="M/F"/><br />
 								<label for="age">Age: </label>
 								<input class="form-control" type="text" name="age" /><br />
 								<label for="home_income">Yearly Income: </label>
-								<input class="form-control" type="text" name="home_income" /><br />
+								<input class="form-control" type="text" name="home_income" placeholder="$"/><br />
 								<label for="marriage_status">Marital Status: </label>
-								<input class="form-control" type="text" name="marriage_status" />
+								<input class="form-control" type="text" name="marriage_status" placeholder="Single/Married"/>
 							</div>
 							<div class="form-group" id="business">
 								<label for="business_category">Type of Business: </label>
@@ -194,6 +196,6 @@ if (isset($_POST['submit'])) {
 </html>
 
 <?php
-// 5. Close database connection
+// Close database connection
 mysqli_close($connection);
 ?>

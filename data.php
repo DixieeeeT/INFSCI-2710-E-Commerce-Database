@@ -2,7 +2,7 @@
 // Create a database connection
 $dbhost = "localhost";
 $dbuser = "root"; // username here
-$dbpass = "root"; // password here
+$dbpass = "19960120toBY!!"; // password here
 $dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
@@ -25,20 +25,23 @@ if (mysqli_connect_errno()) {
 <body>
 	<header class="container">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">XXX's Cars</a>
+			<a class="navbar-brand" href="customers.php">XXX's Cars</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="customers.php">Customer Interface</a>
+						<a class="nav-link" href="customers.php">Main Page</a>
 					</li>
 					<li class="nav-item active">
 						<a class="nav-link" href="data.php">Data Aggregation</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="employees.php">Employee Login</a>
+						<a class="nav-link" href="employees.php">Additional Actions</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="startpage.php">Back to Start Page</a>
 					</li>
 				</ul>
 			</div>

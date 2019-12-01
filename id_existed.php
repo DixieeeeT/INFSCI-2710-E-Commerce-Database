@@ -19,13 +19,16 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="customers.php">Customer Interface</a>
+						<a class="nav-link" href="customers.php">Main Page</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="data.php">Data Aggregation</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="employees.php">Employee Login</a>
+						<a class="nav-link" href="employees.php">Additional Actions</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="startpage.php">Back to Start Page</a>
 					</li>
 				</ul>
 			</div>

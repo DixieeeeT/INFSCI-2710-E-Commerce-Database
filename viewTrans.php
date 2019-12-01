@@ -2,7 +2,7 @@
 // Create a database connection
 $dbhost = "localhost";
 $dbuser = "root"; // username here
-$dbpass = "root"; // password here
+$dbpass = "19960120toBY!!"; // password here
 $dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
@@ -11,8 +11,18 @@ if (mysqli_connect_errno()) {
 		mysqli_connect_error() .
 		" (" . mysqli_connect_errno() . ")");
 }
-
 if (isset($_POST['login'])) {
+	$login_id = $_POST['emp_id'];
+	$login_query = "SELECT emp_id FROM Employees WHERE emp_id = '$login_id'";
+	$login_result = mysqli_query($connection, $login_query);
+	if (!$login_result) {
+		die("Database query failed."); // bad query syntax
+	} else if (mysqli_num_rows($login_result) != 1) {
+		header("Location: bad_login.php");
+	}
+}
+
+if(isset($_POST['login'])){
 	$view_trans = "SELECT * FROM Transaction";
 	$view_trans_result = mysqli_query($connection, $view_trans);
 	if (!$view_trans_result) {
@@ -31,27 +41,14 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-	<header class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">XXX's Cars</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="customers.php">Customer Interface</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="data.php">Data Aggregation</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="employees.php">Employee Login</a>
-					</li>
-				</ul>
-			</div>
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="employees.php">Additional Actions</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Add Cars</li>
+			</ol>
 		</nav>
-	</header>
+	</div>
 	<br>
 	<h2 style="text-align: center">View all the Transactions.</h2>
 	<br>
@@ -106,5 +103,5 @@ if (isset($_POST['login'])) {
 
 <?php
 // Close database connection
-mysqli_close($connection);
+	mysqli_close($connection);
 ?>

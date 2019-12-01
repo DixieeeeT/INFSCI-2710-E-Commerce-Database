@@ -2,7 +2,7 @@
 // Create a database connection
 $dbhost = "localhost";
 $dbuser = "root"; // username here
-$dbpass = "root"; // password here
+$dbpass = "19960120toBY!!"; // password here
 $dbname = "db"; // db name here
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 // Test if connection succeeded
@@ -26,14 +26,15 @@ $account_row = mysqli_fetch_assoc($account_result);
 $balance = $account_row['balance'];
 ?>
 <?php
-if (isset($_POST['pay'])) {
+if (isset($_POST['Pay'])) {
 	$balance = $_POST['balance'];
 
 	$carid = $_POST['carid'];
 	$car_check_query = "SELECT * FROM Product WHERE product_id = $carid";
 	$car_check_result = mysqli_query($connection, $car_check_query);
-	if (mysqli_num_rows(!$car_check_result) != 1) {
-		header("Location: bad_make_payment.php"); // car doesn't exist constraint
+	if (mysqli_num_rows($car_check_result) == 0) {
+		die("Car Check Failed.");
+		/*header("Location: bad_make_payment.php"); // car doesn't exist constraint */
 	}
 
 	// extract data from Object[]
@@ -57,8 +58,9 @@ if (isset($_POST['pay'])) {
 	$employee_check_result = mysqli_query($connection, $employee_check_query);
 	if (!$employee_check_result) {
 		die("Database query failed."); // bad query syntax
-	} else if (mysqli_num_rows($employee_check_result) != 1) {
-		header("Location: bad_make_payment.php"); // wrong employee number constraint
+	} else if (mysqli_num_rows($employee_check_result) == 0) {
+		die("Employee Check Failed.");
+		/*header("Location: bad_make_payment.php"); // wrong employee number constraint*/
 	}
 
 	$date = $_POST['date'];
@@ -130,6 +132,8 @@ if (isset($_POST['pay'])) {
 	} else {
 		die("Database delete query failed."); // bad query syntax
 	}
+
+	header("Location: paymentSuccess.php");
 }
 ?>
 <!DOCTYPE html>
@@ -146,7 +150,7 @@ if (isset($_POST['pay'])) {
 <div class="container">
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="customers.php">Cutomers Intrerface</a></li>
+				<li class="breadcrumb-item"><a href="customers.php">Main Page</a></li>
 				<li class="breadcrumb-item active" aria-current="account.php">Account for customers</li>
 			</ol>
 		</nav>
