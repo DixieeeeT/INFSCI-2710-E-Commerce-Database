@@ -21,18 +21,21 @@ if (isset($_POST['search'])) {
 	if (!$product_query_result) {
 		die("Database query failed."); // bad query syntax error
 	}
-
+	if (mysqli_num_rows($product_query_result) == 0) {
+		header("Location: id_not_existed.php");
+	}
 	$product_arr = mysqli_fetch_assoc($product_query_result);
 	$carid = $product_arr['product_id'];
 
+
 	// id doesn't exist check
 
-	$idcheck = "SELECT product_id FROM Product";
+	/*$idcheck = "SELECT product_id FROM Product";
 	$idcheck_result = mysqli_query($connection, $idcheck);
 	$idcheck_result_arr = mysqli_fetch_assoc($idcheck_result);
-	if (!in_array($carid, $idcheck_result_arr)) {
+	if (in_array($carid, $idcheck_result_arr)) {
 		header("Location: id_not_existed.php");
-	}
+	}*/
 
 	$brand = $product_arr['car_brand'];
 	$model = $product_arr['car_model'];
