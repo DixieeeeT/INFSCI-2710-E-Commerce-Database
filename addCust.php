@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
 			die("Database query failed. " . mysqli_error($connection));
 		}
 	} else {
-		$add_business = "INSERT INTO Customer_Business VALUES ('$id', '$category', '$business_income')";
+		$add_business = "INSERT INTO Customer_Business VALUES ('$id', '$type','$category', '$business_income')";
 		$business_result = mysqli_query($connection, $add_business);
 		if ($business_result) {
 			echo "Successfully created business customer.";

@@ -21,6 +21,9 @@ $account_result = mysqli_query($connection, $get_account);
 if (!$account_result) {
 	die("Database id query failed."); // bad query syntax
 }
+else if (mysqli_num_rows($account_result) == 0) {
+	header("Location: custid_not_existed.php");
+}
 
 $account_row = mysqli_fetch_assoc($account_result);
 $balance = $account_row['balance'];
