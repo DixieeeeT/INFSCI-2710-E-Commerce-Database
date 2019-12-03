@@ -1,11 +1,11 @@
 <?php
 // Create a database connection
 $dbhost = "localhost";
-$dbuser = "root"; // username here
-$dbpass = "19960120toBY!!"; // password here
-$dbname = "db"; // db name here
+$dbuser = "root"; 
+$dbpass = "19960120toBY!!"; 
+$dbname = "db"; 
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-// Test if connection succeeded
+// Test to see if success
 if (mysqli_connect_errno()) {
 	die("Database connection failed: " .
 		mysqli_connect_error() .
@@ -28,7 +28,7 @@ if (isset($_POST['browse'])) {
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Customer Interface</title>
+	<title>Employee Interface</title>
 </head>
 
 <body>
@@ -36,12 +36,12 @@ if (isset($_POST['browse'])) {
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="customers.php">Main Page</a></li>
-				<li class="breadcrumb-item active" aria-current="prod_results_all_em.php">View All Cars</li>
+				<li class="breadcrumb-item active" aria-current="prod_results_all_em.php">View All the Stocks</li>
 			</ol>
 		</nav>
 	</div>
 	<br>
-	<h2 style="text-align: center">View all the Cars.</h2>
+	<h2 style="text-align: center">View All the Stocks.</h2>
 	<br>
 	<div class="container text-center">
 		<table class="table">

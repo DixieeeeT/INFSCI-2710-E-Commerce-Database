@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： 127.0.0.1:3306
--- 生成日期： 2019-11-25 22:47:54
+-- 生成日期： 2019-12-03 05:19:31
 -- 服务器版本： 8.0.17
 -- PHP 版本： 7.2.18
 
@@ -40,56 +40,62 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 --
 
 INSERT INTO `accounts` (`customer_id`, `balance`) VALUES
-(4001, 21),
-(4002, 21),
-(4003, 21),
-(4004, 21),
-(4005, 21),
-(4006, 21),
-(4007, 21),
-(4008, 21),
-(4009, 21),
-(4010, 21),
-(4011, 21),
-(4012, 21),
-(4013, 21),
-(4014, 21),
-(4015, 21),
-(4016, 21),
-(4017, 21),
-(4018, 21),
-(4019, 21),
-(4020, 21),
-(4021, 21),
-(4022, 21),
-(4023, 21),
-(4024, 21),
-(4025, 21),
-(4026, 21),
-(4027, 21),
-(4028, 21),
-(4029, 21),
-(4030, 21),
-(4031, 21),
-(4032, 21),
-(4033, 21),
-(4034, 21),
-(4035, 21),
-(4036, 21),
-(4037, 21),
-(4038, 21),
-(4039, 21),
-(4040, 21),
-(4041, 21),
-(4042, 21),
-(4043, 21),
-(4044, 21),
-(4045, 21),
-(4046, 21),
-(4047, 21),
-(4048, 21),
-(4049, 21),
-(4050, 21);
+(4001, 80042),
+(4002, 30057),
+(4003, 9007),
+(4004, 15000),
+(4005, 96544),
+(4006, 55412),
+(4007, 90000),
+(4008, 90099),
+(4009, 66500),
+(4010, 90054),
+(4011, 130000),
+(4012, 54896),
+(4013, 96400),
+(4014, 41200),
+(4015, 66000),
+(4016, 54136),
+(4017, 340561),
+(4018, 1933),
+(4019, 90477),
+(4020, 69551),
+(4021, 900),
+(4022, 785),
+(4023, 91561),
+(4024, 90561),
+(4025, 44125),
+(4026, 90000),
+(4027, 50000),
+(4028, 61811),
+(4029, 48181),
+(4030, 21112),
+(4031, 98983),
+(4032, 84711),
+(4033, 33515),
+(4034, 98177),
+(4035, 68498),
+(4036, 56652),
+(4037, 44896),
+(4038, 41423),
+(4039, 90000),
+(4040, 23115),
+(4041, 98498),
+(4042, 65165),
+(4043, 36115),
+(4044, 19889),
+(4045, 69166),
+(4046, 65489),
+(4047, 33641),
+(4048, 20114),
+(4049, 90630),
+(4050, 84400),
+(4051, 74457),
+(4052, 90221),
+(4053, 0),
+(4054, 0),
+(4055, 0),
+(4056, 0);
 
 -- --------------------------------------------------------
 
@@ -114,31 +120,31 @@ CREATE TABLE IF NOT EXISTS `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_address_street`, `customer_address_city`, `customer_address_state`, `customer_address_zip`, `customer_type`) VALUES
-(4001, 'Stannis Baratheon', '226 Bates', 'Tampa', 'FL', '25556', 'home'),
-(4002, 'Tormund Giantsbane', '2 Semple', 'Tampa', 'FL', '25556', 'Home'),
-(4003, 'Viserys Targaryen', '226 McKee', 'Tampa', 'FL', '25556', 'Home'),
-(4004, 'Khal Drogo', '6 Halket', 'Boston', 'MA', '18998', 'Home'),
-(4005, 'Eddard Stark', '2 Meyran', 'Boston', 'MA', '18998', 'Home'),
-(4006, 'Meryn Trant', '2666 York', 'Boston', 'MA', '18998', 'Home'),
-(4007, 'Podrick Payne', '5 Atwood', 'New York', 'NY', '10010', 'Home'),
-(4008, 'Jaqen Hghar', '55655 Pier', 'New York', 'NY', '10010', 'Home'),
-(4009, 'Lommy Greenhands', '555 Louisa', 'New York', 'NY', '10010', 'Home'),
-(4010, 'Syrio Forel', '5 Lothrop', 'New York', 'NY', '10010', 'Home'),
-(4011, 'Lysa Arryn', '23 Coltart', 'San Francisco', 'CA', '63256', 'Home'),
-(4012, 'Salladhor Saan', '568 Eular', 'San Francisco', 'CA', '63256', 'Home'),
-(4013, 'Ellaria Sand', '55 Melba', 'San Francisco', 'CA', '63256', 'Home'),
-(4014, 'Meera Reed', '5 Dawson', 'San Diego', 'CA', '65332', 'Home'),
-(4015, 'Rodrik Cassel', '454 Bayard', 'San Diego', 'CA', '65332', 'Home'),
-(4016, 'Grey Worm', '84 Darragh', 'San Diego', 'CA', '65332', 'Home'),
-(4017, 'Edmure Tully', '898 Bouquet', 'Los Angeles', 'CA', '32665', 'Home'),
-(4018, 'Olenna Redwyne', '6 Schenley', 'Los Angeles', 'CA', '32665', 'Home'),
+(4001, 'Stan Bara', '2262 Bates ST', 'Tampa', 'FL', '25556', 'Home'),
+(4002, 'Tormund Giants', '2 Semple RD', 'Tampa', 'FL', '25556', 'Home'),
+(4003, 'Viserys Targaryen', '226 McKee ST', 'Tampa', 'FL', '25556', 'home'),
+(4004, 'Khal Drogo', '6 Halket RD', 'Boston', 'MA', '18998', 'Home'),
+(4005, 'Eddard Stark', '2 Meyran Walk', 'Boston', 'MA', '18998', 'Home'),
+(4006, 'Meryn Trant', '2666 York ST', 'Boston', 'MA', '18998', 'Home'),
+(4007, 'Podrick Payne', '52 Atwood ST', 'New York', 'NY', '10010', 'Home'),
+(4008, 'Jaqen Hghar', '55655 Pier ST', 'New York', 'NY', '10010', 'Home'),
+(4009, 'Lommy Greenhands', ' 5587 Hobart ST', 'New York', 'NY', '10010', 'Home'),
+(4010, 'Syrio Forel', '5 Lothrop RD', 'New York', 'NY', '10010', 'Home'),
+(4011, 'Lysa Arryn', '23 Coltart RD', 'San Francisco', 'CA', '63256', 'Home'),
+(4012, 'Salladhor Saan', '568 Eular RD', 'San Francisco', 'CA', '63256', 'Home'),
+(4013, 'Ellaria Sand', '553 Melba ST', 'San Francisco', 'CA', '63256', 'Home'),
+(4014, 'Meera Reed', '57 Dawson', 'San Diego', 'CA', '65332', 'Home'),
+(4015, 'Rodrik Cassel', '454 Bayard ST', 'San Diego', 'CA', '65332', 'Home'),
+(4016, 'Grey Worm', '841 Darragh', 'San Diego', 'CA', '65332', 'Home'),
+(4017, 'Edmure Tully', '898 Bouquet ST', 'Los Angeles', 'CA', '32665', 'Home'),
+(4018, 'Olenna Redwyne', '677 Schenley', 'Los Angeles', 'CA', '32665', 'Home'),
 (4019, 'Alliser Thorne', '54 Bigelow', 'Portland', 'OR', '36559', 'Home'),
 (4020, 'Tycho Nestoris', '564 Thackeray', 'Portland', 'OR', '36559', 'Home'),
-(4021, 'Pyat Pree', '5 Ohara', 'Seattle', 'WA', '65658', 'Home'),
-(4022, 'Mirri MazDuur', '6546 Lytton', 'Seattle', 'WA', '65658', 'Home'),
-(4023, 'Sandor Clegane', '65 Ruskin', 'Birmingham', 'AL', '44456', 'Home'),
-(4024, 'Jojen Reed', '987 Dithridge', 'Birmingham', 'AL', '44456', 'Home'),
-(4025, 'Rhaegar Targaryen', '85 Craig', 'Birmingham', 'AL', '44456', 'Home'),
+(4021, 'Pyat Pree', '5 Ohara RD', 'Seattle', 'WA', '65658', 'Home'),
+(4022, 'Mirri MazDuur', '6546 Lytton Walk', 'Seattle', 'WA', '65658', 'Home'),
+(4023, 'Sandor Clegane', '65 South Ruskin', 'Birmingham', 'AL', '44456', 'Home'),
+(4024, 'Jojen Reed', '987 Dithridge RD', 'Birmingham', 'AL', '44456', 'Home'),
+(4025, 'Rhaegar Targaryen', '85 Craig Walk', 'Birmingham', 'AL', '44456', 'Home'),
 (4026, 'Gerold Hightower', '987 Neville', 'Philadelphia', 'PA', '32666', 'Home'),
 (4027, 'Alester Florent', '98 Centre', 'Philadelphia', 'PA', '32666', 'Home'),
 (4028, 'Walder Frey', '78 Devonshire', 'Philadelphia', 'PA', '32666', 'Home'),
@@ -163,7 +169,13 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_address_street
 (4047, 'Poor Fellows', '54 Centre', 'New York', 'NY', '10010', 'Business'),
 (4048, 'Iron Fleet', '668 Meyran', 'New York', 'NY', '10010', 'Business'),
 (4049, 'Spicers', '89 York', 'New York', 'NY', '10010', 'Business'),
-(4050, 'Kingswood Brotherhood', '8 Atwood', 'New York', 'NY', '10010', 'Business');
+(4050, 'Kingswood Brotherhood', '8 Atwood', 'New York', 'NY', '10010', 'Business'),
+(4051, 'Dixie Wayne', '5562 Hoabrt ST', 'Pittsburgh', 'PA', '15217', 'Home'),
+(4052, 'How Roach', '5524 Becon ST', 'Pittsburgh', 'CA', '15222', 'Home'),
+(4053, 'Jiki Joe', '5890 Hoabrt ST', 'Pittsburgh', 'PA', '15217', 'Business'),
+(4054, 'kiki', '5532 White', 'Pittsburgh', 'PA', '15217', 'Business'),
+(4055, 'Omega Quake', '61 North Baker RD', 'Riverside', 'CA', '92511', 'Business'),
+(4056, 'Neko Yun', '87 Everton DR', 'Riverside', 'CA', '92503', 'Business');
 
 -- --------------------------------------------------------
 
@@ -185,20 +197,22 @@ CREATE TABLE IF NOT EXISTS `customer_business` (
 --
 
 INSERT INTO `customer_business` (`customer_id`, `customer_type`, `business_category`, `business_income`) VALUES
-(4037, 'Business', 'Academic', 50000),
-(4038, 'Business', 'Academic', 750000),
-(4039, 'Business', 'Pro Sports', 300000),
-(4040, 'Business', 'Pro Sports', 10000),
-(4041, 'Business', 'Banking', 350000000),
-(4042, 'Business', 'Amateur Sports', 15000),
-(4043, 'Business', 'Amateur Sports', 125000),
-(4044, 'Business', 'College Sports', 80000),
-(4045, 'Business', 'College Sports', 254000),
-(4046, 'Business', 'College Sports', 25000),
-(4047, 'Business', 'Academic', 5000),
+(4037, 'Business', 'Academic Govern', 50000),
+(4038, 'Business', 'Academic Research', 750000),
+(4039, 'Business', 'Racer', 300000),
+(4040, 'Business', 'Racer', 10000),
+(4041, 'Business', 'Banking', 3500000),
+(4042, 'Business', 'Water', 15000),
+(4043, 'Business', 'Water', 125000),
+(4044, 'Business', 'College', 80000),
+(4045, 'Business', 'College', 254000),
+(4046, 'Business', 'College', 25000),
+(4047, 'Business', 'Academic Govern', 5000),
 (4048, 'Business', 'Recreational Resort', 475000),
 (4049, 'Business', 'Recreational Resort', 968000),
-(4050, 'Business', 'Recreational Resort', 5000000);
+(4050, 'Business', 'Recreational Resort', 5000000),
+(4055, 'Business', 'Government', 200000),
+(4056, 'Business', 'Government', 112345);
 
 -- --------------------------------------------------------
 
@@ -228,15 +242,15 @@ INSERT INTO `customer_home` (`customer_id`, `customer_type`, `marriage_status`, 
 (4004, 'Home', 'Married', 'M', 30, 22000),
 (4005, 'Home', 'Married', 'M', 40, 56000),
 (4006, 'Home', 'Married', 'M', 60, 150000),
-(4007, 'Home', 'Single', 'M', 16, 125000),
-(4008, 'Home', 'Single', 'M', 28, 135000),
-(4009, 'Home', 'Single', 'M', 12, 250000),
+(4007, 'Home', 'Single', 'M', 19, 125000),
+(4008, 'Home', 'Single', 'M', 24, 135000),
+(4009, 'Home', 'Single', 'M', 19, 250000),
 (4010, 'Home', 'Single', 'M', 45, 35000),
 (4011, 'Home', 'Married', 'F', 50, 65000),
 (4012, 'Home', 'Single', 'M', 60, 75000),
-(4013, 'Home', 'Single', 'F', 18, 85000),
-(4014, 'Home', 'Single', 'F', 14, 90000),
-(4015, 'Home', 'Married', 'M', 36, 100000),
+(4013, 'Home', 'Single', 'F', 19, 85000),
+(4014, 'Home', 'Single', 'F', 25, 90000),
+(4015, 'Home', 'Married', 'M', 39, 100000),
 (4016, 'Home', 'Single', 'M', 23, 20000),
 (4017, 'Home', 'Married', 'M', 38, 35000),
 (4018, 'Home', 'Married', 'F', 73, 35000),
@@ -244,20 +258,21 @@ INSERT INTO `customer_home` (`customer_id`, `customer_type`, `marriage_status`, 
 (4020, 'Home', 'Single', 'M', 23, 60000),
 (4021, 'Home', 'Single', 'M', 47, 80000),
 (4022, 'Home', 'Single', 'F', 53, 90000),
-(4023, 'Home', 'Single', 'M', 39, 41000),
-(4024, 'Home', 'Single', 'M', 12, 42000),
-(4025, 'Home', 'Married', 'M', 32, 43000),
+(4023, 'Home', 'Single', 'M', 41, 41000),
+(4024, 'Home', 'Single', 'M', 31, 42000),
+(4025, 'Home', 'Married', 'M', 33, 43000),
 (4026, 'Home', 'Married', 'M', 51, 65000),
 (4027, 'Home', 'Single', 'M', 57, 89000),
 (4028, 'Home', 'Married', 'M', 83, 99000),
-(4029, 'Home', 'Married', 'F', 17, 100000),
+(4029, 'Home', 'Married', 'F', 19, 100000),
 (4030, 'Home', 'Single', 'M', 47, 82000),
 (4031, 'Home', 'Single', 'M', 43, 76000),
 (4032, 'Home', 'Single', 'M', 51, 84000),
 (4033, 'Home', 'Single', 'M', 63, 85000),
 (4034, 'Home', 'Single', 'M', 33, 15000),
 (4035, 'Home', 'Single', 'M', 28, 45000),
-(4036, 'Home', 'Single', 'M', 52, 44000);
+(4036, 'Home', 'Single', 'M', 52, 44000),
+(4052, 'Home', 'Single', 'M', 22, 30000);
 
 -- --------------------------------------------------------
 
@@ -282,81 +297,68 @@ CREATE TABLE IF NOT EXISTS `employees` (
 --
 
 INSERT INTO `employees` (`emp_id`, `emp_name`, `emp_address_street`, `emp_address_city`, `emp_address_state`, `emp_address_zip`, `email`) VALUES
-(3001, 'Arya Stark', '5 McFarland', 'Portland', 'OR', '36559', 'AryaStark@cars.com'),
+(3001, 'Arya Stark', '5 McFarland RD', 'Portland', 'OR', '36559', 'AryaStark@cars.com'),
 (3002, 'Arys Oakheart', '226 Washington', 'Portland', 'OR', '36559', 'ArysOakheart@cars.com'),
-(3003, 'Barriston Selmy', '55 Banksville', 'Portland', 'OR', '36559', 'BarristonSelmy@cars.com'),
+(3003, 'Barriston Selmy', '55 Banksville RD', 'Portland', 'OR', '36559', 'BarristonSelmy@cars.com'),
 (3004, 'Bowen Marsh', '5 Williamsburg', 'Seattle', 'WA', '65658', 'BowenMarsh@cars.com'),
 (3005, 'Bran Stark', '2 Longuevue', 'Seattle', 'WA', '65658', 'BranStark@cars.com'),
-(3006, 'Brienne Tarth', '6546 Seminole', 'San Francisco', 'CA', '63256', 'BrienneTarth@cars.com'),
+(3006, 'Brienne Tarth', '654 Seminole ST', 'San Francisco', 'CA', '63256', 'BrienneTarth@cars.com'),
 (3007, 'Catelyn Stark', '65 Ordale', 'New York', 'NY', '10010', 'CatelynStark@cars.com'),
 (3008, 'Cotter Pyke', '226 Mayview', 'New York', 'NY', '10010', 'CotterPyke@cars.com'),
-(3009, 'Jaime Lannister', '6 Cedar', 'New York', 'NY', '10010', 'JaimeLannister@cars.com'),
+(3009, 'Jaime Lannister', '6 Cedar Point', 'New York', 'NY', '10010', 'JaimeLannister@cars.com'),
 (3010, 'Janos Slynt', '454 Cochran', 'Boston', 'MA', '18998', 'JanosSlynt@cars.com'),
 (3011, 'Jon Connington', '987 Beverly', 'Montpellier', 'VT', '78878', 'JonConnington@cars.com'),
-(3012, 'Jorah Mormont', '2 Orchard', 'Concord', 'NH', '98865', 'JorahMormont@cars.com'),
-(3013, 'Mace Tyrell', '84 Cedarhurst', 'Tampa', 'FL', '25556', 'MaceTyrell@cars.com'),
+(3012, 'Jorah Mormont', '2 Orchard RD', 'Concord', 'NH', '98865', 'JorahMormont@cars.com'),
+(3013, 'Mace Tyrell', '84 Cedarhurst RD', 'Tampa', 'FL', '25556', 'MaceTyrell@cars.com'),
 (3014, 'Margery Tyrell', '898 Folkstone', 'Birmingham', 'AL', '45125', 'MargeryTyrell@cars.com'),
 (3015, 'Nymeria Sand', '2666 Greenhurst', 'New Orleans', 'LA', '15642', 'NymeriaSand@cars.com'),
-(3016, 'Petyr Balish', '85 Shady', 'Charleston', 'SC', '15213', 'PetyrBalish@cars.com'),
-(3017, 'Quenten Martell', '798 Hillview', 'Philadelphia', 'PA', '32666', 'QuentenMartell@cars.com'),
+(3016, 'Petyr Balish', '85 Shadyside', 'Charleston', 'SC', '15213', 'PetyrBalish@cars.com'),
+(3017, 'Quenten Martell', '798 Hillview South', 'Philadelphia', 'PA', '32666', 'QuentenMartell@cars.com'),
 (3018, 'Ramsey Snow', '789 Lindendale', 'Tampa', 'FL', '25556', 'RamseySnow@cars.com'),
 (3019, 'Roose Bolton', '555 Hazel', 'Orlando', 'FL', '25584', 'RooseBolton@cars.com'),
-(3020, 'Sam Tarly', '5 Aldine', 'Birmingham', 'AL', '44456', 'SamTarly@cars.com'),
-(3021, 'Sansa Stark', '6 Diversey', 'San Francisco', 'CA', '63256', 'SansaStark@cars.com'),
+(3020, 'Sam Tarly', '53 Aldine', 'Birmingham', 'AL', '44456', 'SamTarly@cars.com'),
+(3021, 'Sansa Stark', '6 Diversey Center', 'San Francisco', 'CA', '63256', 'SansaStark@cars.com'),
 (3022, 'Theon Greyjoy', '5646 Halstead', 'Los Angeles', 'CA', '32665', 'TheonGreyjoy@cars.com'),
-(3023, 'Tywin Lannister', '23 Southport', 'Los Angeles', 'CA', '32665', 'TywinLannister@cars.com'),
-(3024, 'Victarion Greyjoy', '54 Addison', 'Oakland', 'CA', '65325', 'VictarionGreyjoy@cars.com'),
+(3023, 'Tywin Lannister', '233 Southport', 'Los Angeles', 'CA', '32665', 'TywinLannister@cars.com'),
+(3024, 'Victarion Greyjoy', '54 Addison East', 'Oakland', 'CA', '65325', 'VictarionGreyjoy@cars.com'),
 (3025, 'Robert Baratheon', '564 Clark', 'Hartford', 'CT', '54885', 'RobertBaratheon@cars.com'),
-(3026, 'Joanna Lannister', '568 Lakeview', 'New York', 'NY', '10010', 'JoannaLannister@cars.com'),
-(3027, 'Loras Tyrell', '87 Wolfram', 'New York', 'NY', '10010', 'LorasTyrell@cars.com'),
-(3028, 'Aegon Targaryen', '987 Polk', 'Los Angeles', 'CA', '32665', 'AegonTargaryen@cars.com'),
-(3029, 'Elia Martell', '98 Harrison', 'San Diego', 'CA', '65332', 'EliaMartell@cars.com'),
-(3030, 'Areo Hotah', '78 Independence', 'San Diego', 'CA', '65332', 'AreoHotah@cars.com'),
-(3031, 'Hugor Hill', '5 Dupont', 'San Diego', 'CA', '65332', 'HugorHill@cars.com'),
-(3032, 'Azor Ahai', '55655 Maple', 'San Francisco', 'CA', '63256', 'AzorAhai@cars.com'),
+(3026, 'Joanna Lannister', '568 Lakeview ST', 'New York', 'NY', '10010', 'JoannaLannister@cars.com'),
+(3027, 'Loras Tyrell', '87 Wolfram ST', 'New York', 'NY', '10010', 'LorasTyrell@cars.com'),
+(3028, 'Aegon Targaryen', '987 Polk ST', 'Los Angeles', 'CA', '32665', 'AegonTargaryen@cars.com'),
+(3029, 'Elia Martell', '98 Harrison ST', 'San Diego', 'CA', '65332', 'EliaMartell@cars.com'),
+(3030, 'Areo Hotah', '78 Independence ST', 'San Diego', 'CA', '65332', 'AreoHotah@cars.com'),
+(3031, 'Hugor Hill', '53 Dupont ST', 'San Diego', 'CA', '65332', 'HugorHill@cars.com'),
+(3032, 'Azor Ahai', '5355 Maple ST', 'San Francisco', 'CA', '63256', 'AzorAhai@cars.com'),
 (3033, 'Jon Snow', '75 Broadway', 'New York', 'NY', '10001', 'JonSnow@cars.m.com'),
 (3034, 'Cersei Lannister', '400 Palm', 'Miami', 'FL', '65993', 'CerseiLannister@cars.m.com'),
-(3035, 'Robb Stark', '1800 Liberty', 'Philadelphia', 'PA', '22888', 'RobbStark@cars.m.com'),
-(3036, 'Dany Targaryen', '97 Bay', 'San Francisco', 'CA', '65488', 'DanyTargaryen@cars.m.com'),
-(3037, 'Mance Rayder', '500 38th', 'New York', 'NY', '10001', 'ManceRayder@cars.com'),
-(3038, 'Oberyn Martell', '12 Brady', 'Boston', 'MA', '15663', 'OberynMartell@cars.com'),
-(3039, 'Gregor Clegane', '642 Sunset', 'Miami', 'FL', '65993', 'GregorClegane@cars.com'),
-(3040, 'Joffrey Baratheon', '1200 Peach', 'Atlanta', 'GA', '14455', 'JoffreyBaratheon@cars.com'),
-(3041, 'Eddard Stark', '35 Spring', 'Philadelphia', 'PA', '22888', 'EddardStark@cars.com'),
-(3042, 'Asha Greyjoy', '977 Hill', 'San Francisco', 'CA', '65488', 'AshaGreyjoy@cars.com'),
-(3043, 'Tyrion Lannister', '64 Oak', 'Portland', 'OR', '66535', 'TyrionLannister@cars.com'),
-(3044, 'Davos Seaworth', '3700 Horseshoe', 'Las Vegas', 'NV', '56698', 'DavosSeaworth@cars.com');
+(3035, 'Robb Stark', '180 Liberty ST', 'Philadelphia', 'PA', '22888', 'RobbStark@cars.m.com'),
+(3036, 'Dany Targaryen', '97 Bay ST', 'San Francisco', 'CA', '65488', 'DanyTargaryen@cars.m.com');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `metadata`
+-- 表的结构 `manager`
 --
 
-DROP TABLE IF EXISTS `metadata`;
-CREATE TABLE IF NOT EXISTS `metadata` (
-  `table_id` int(11) NOT NULL,
-  `TABLE_NAME` char(30) DEFAULT NULL,
-  `number_of_fields` int(11) DEFAULT NULL,
-  `number_of_primary_keys` int(11) DEFAULT NULL,
-  `number_of_foreign_keys` int(11) DEFAULT NULL,
-  `number_of_indexes` int(11) DEFAULT NULL,
-  PRIMARY KEY (`table_id`)
+DROP TABLE IF EXISTS `manager`;
+CREATE TABLE IF NOT EXISTS `manager` (
+  `emp_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `title` char(40) NOT NULL,
+  `salary` int(11) NOT NULL,
+  PRIMARY KEY (`emp_id`),
+  KEY `manager_ibfk_1` (`store_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- 转存表中的数据 `metadata`
+-- 转存表中的数据 `manager`
 --
 
-INSERT INTO `metadata` (`table_id`, `TABLE_NAME`, `number_of_fields`, `number_of_primary_keys`, `number_of_foreign_keys`, `number_of_indexes`) VALUES
-(9001, 'Customer', 7, 1, 0, 1),
-(9002, 'Customer_Business', 4, 1, 1, 0),
-(9003, 'Customer_Home', 6, 1, 1, 0),
-(9004, 'Product', 6, 1, 0, 1),
-(9005, 'Region', 3, 1, 0, 0),
-(9006, 'Salesperson', 10, 1, 1, 2),
-(9007, 'Store', 9, 1, 1, 1),
-(9008, 'Transaction', 7, 1, 3, 0);
+INSERT INTO `manager` (`emp_id`, `store_id`, `title`, `salary`) VALUES
+(3033, 2001, 'Manager', 61000),
+(3034, 2004, 'Senior Manager', 90000),
+(3035, 2005, 'Senior Manager', 95000),
+(3036, 2008, 'Manager', 66000);
 
 -- --------------------------------------------------------
 
@@ -623,29 +625,29 @@ CREATE TABLE IF NOT EXISTS `salesperson` (
 --
 
 INSERT INTO `salesperson` (`emp_id`, `store_id`, `title`, `salary`) VALUES
-(3001, 2008, 'Senior Sales Associate', 60000),
+(3001, 2008, 'Senior Sales Associate', 30000),
 (3002, 2008, 'Junior Sales Associate', 45000),
 (3003, 2008, 'Sales Trainee', 25000),
 (3004, 2008, 'Sales Trainee', 26000),
-(3005, 2008, 'Junior Sales Associate', 47000),
-(3006, 2008, 'Senior Sales Associate', 65000),
-(3007, 2002, 'Senior Sales Associate', 70000),
+(3005, 2008, 'Junior Sales Associate', 27000),
+(3006, 2008, 'Senior Sales Associate', 55000),
+(3007, 2002, 'Senior Sales Associate', 50000),
 (3008, 2002, 'Junior Sales Associate', 55000),
 (3009, 2002, 'Junior Sales Associate', 37000),
 (3010, 2002, 'Sales Trainee', 27000),
 (3011, 2002, 'Senior Sales Associate', 75000),
-(3012, 2002, 'Junior Sales Associate', 50000),
+(3012, 2002, 'Junior Sales Associate', 30000),
 (3013, 2004, 'Sales Trainee', 26500),
 (3014, 2004, 'Sales Trainee', 23000),
-(3015, 2004, 'Junior Sales Associate', 51000),
+(3015, 2004, 'Junior Sales Associate', 31000),
 (3016, 2004, 'Senior Sales Associate', 77000),
 (3017, 2005, 'Senior Sales Associate', 62000),
 (3018, 2003, 'Senior Sales Associate', 63500),
-(3019, 2003, 'Junior Sales Associate', 53000),
-(3020, 2003, 'Junior Sales Associate', 45500),
+(3019, 2003, 'Junior Sales Associate', 33000),
+(3020, 2003, 'Junior Sales Associate', 35500),
 (3021, 2007, 'Sales Trainee', 22000),
 (3022, 2007, 'Senior Sales Associate', 74500),
-(3023, 2007, 'Junior Sales Associate', 43500),
+(3023, 2007, 'Junior Sales Associate', 40000),
 (3024, 2007, 'Sales Trainee', 23500),
 (3025, 2001, 'Sales Trainee', 22500),
 (3026, 2001, 'Junior Sales Associate', 42500),
@@ -670,7 +672,6 @@ CREATE TABLE IF NOT EXISTS `store` (
   `store_address_city` char(30) DEFAULT NULL,
   `store_address_state` char(20) DEFAULT NULL,
   `store_address_zip` char(10) DEFAULT NULL,
-  `store_manager` char(50) DEFAULT NULL,
   `number_of_salespersons` int(11) DEFAULT NULL,
   `region_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`store_id`),
@@ -681,15 +682,15 @@ CREATE TABLE IF NOT EXISTS `store` (
 -- 转存表中的数据 `store`
 --
 
-INSERT INTO `store` (`store_id`, `store_name`, `store_address_street`, `store_address_city`, `store_address_state`, `store_address_zip`, `store_manager`, `number_of_salespersons`, `region_id`) VALUES
-(2001, 'Westeros', '87 Markham', 'New York', 'NY', '10001', '3037', 3, 1001),
-(2002, 'Essos', '65 Inglewood', 'Boston', 'MA', '15663', '3038', 6, 1001),
-(2003, 'Sothoryos', '87 Seneca', 'Miami', 'FL', '65993', '3039', 3, 1002),
-(2004, 'Iron Islands', '65 Woodhaven', 'Atlanta', 'GA', '14455', '3040', 4, 1002),
-(2005, 'Riverlands', '32 Crescent', 'Philadelphia', 'PA', '22888', '3041', 1, 1003),
-(2006, 'Qarth', '12 McConnell', 'San Francisco', 'CA', '65488', '3042', 5, 1004),
-(2007, 'Stormlands', '65 James', 'Portland', 'OR', '66535', '3043', 4, 1004),
-(2008, 'Dorne', '65 Altadena', 'Las Vegas', 'NV', '56698', '3044', 6, 1004);
+INSERT INTO `store` (`store_id`, `store_name`, `store_address_street`, `store_address_city`, `store_address_state`, `store_address_zip`, `number_of_salespersons`, `region_id`) VALUES
+(2001, 'Westocul', '87 Markham DR', 'New York', 'NY', '10001', 3, 1001),
+(2002, 'Essos Moss', '65 Inglewood', 'Boston', 'MA', '15663', 6, 1001),
+(2003, 'Sothoryos', '87 Seneca ST', 'Miami', 'FL', '65993', 3, 1002),
+(2004, 'Iron Islands', '65 Woodhaven ST', 'Atlanta', 'GA', '14455', 4, 1002),
+(2005, 'Riverlands', '32 Crescent RD', 'Philadelphia', 'PA', '22888', 1, 1003),
+(2006, 'Qarth Dire', '12 McConnell', 'San Francisco', 'CA', '65488', 5, 1004),
+(2007, 'Stormlands', '65 James ST', 'Portland', 'OR', '66535', 4, 1004),
+(2008, 'Dorne Cars', '65 Altadena DR', 'Las Vegas', 'NV', '56698', 6, 1004);
 
 -- --------------------------------------------------------
 
@@ -720,7 +721,10 @@ CREATE TABLE IF NOT EXISTS `transaction` (
 
 INSERT INTO `transaction` (`order_id`, `order_date`, `emp_id`, `product_id`, `customer_id`, `car_price`, `car_brand`, `car_model`, `car_model_year`, `vin`) VALUES
 (8001, '2019-11-01', 3002, 7000, 4037, 40000, 'Toyota', 'Tacoma', 2001, '1A2B3C4D5F6G7H8I9J'),
-(8004, '2019-11-24', 3033, 7006, 4001, 37056, 'Pontiac', 'Grand Am', 1996, 'JTHBK1GG7F2072272');
+(8004, '2019-11-24', 3033, 7006, 4001, 37056, 'Pontiac', 'Grand Am', 1996, 'JTHBK1GG7F2072272'),
+(8005, '2019-11-24', 3033, 7201, 4001, 30000, 'Toyota', 'Celia', 1999, '123456789ABCDEFG'),
+(8006, '2019-11-24', 3033, 7202, 4001, 30000, 'Toyota', 'Celia', 1999, '123456789ABCDEF'),
+(8007, '2019-11-24', 3033, 7203, 4001, 30000, 'Toyota', 'Celia', 1999, '123456789ABCDEF');
 
 --
 -- 限制导出的表
@@ -743,6 +747,12 @@ ALTER TABLE `customer_business`
 --
 ALTER TABLE `customer_home`
   ADD CONSTRAINT `customer_home_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
+
+--
+-- 限制表 `manager`
+--
+ALTER TABLE `manager`
+  ADD CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`);
 
 --
 -- 限制表 `salesperson`

@@ -31,7 +31,15 @@
 		$zip = $emp_row['emp_address_zip'];
 		$email = $emp_row['email'];
 		
-		$sales_query = "SELECT * FROM Salesperson WHERE emp_id = '$id'";
+		$sales_query = "SELECT * FROM 
+			(
+			SELECT * FROM salesperson
+			UNION
+			SELECT * FROM manager
+			)
+			New
+			WHERE emp_id = '$id'";
+
 		$sales_result = mysqli_query($connection, $sales_query);
 		if (!$sales_result) {
 			die("Database query failed."); // bad query syntax error
@@ -68,16 +76,31 @@
 			die("Database query failed. " . mysqli_error($connection) . " ");
 		}
 		
-		$update_sales_query = "UPDATE Salesperson SET store_id = '$store2', title = '$title2', salary = '$salary2'";
+		$position_check = "SELECT * FROM Salesperson WHERE emp_id = '$id2'";
+		$position_query = mysqli_query($connection, $position_check);
+		if (mysqli_num_rows($position_query) != 0) {
+
+		$update_sales_query = "UPDATE Salesperson SET store_id = '$store2', title = '$title2', salary = '$salary2' WHERE emp_id ='$id2'";
 		
 		$update_sales_result = mysqli_query($connection, $update_sales_query);
 		
 		if ($update_sales_result) {
-			echo "Successfully updated salesperson " . $id;
+			header("Location: editSuccess.php");
 		} else {
 			die("Database query failed. " . mysqli_error($connection));
-		}
+		}			
+		} else if (mysqli_num_rows($position_query) == 0) {
+
+		$update_sales_query = "UPDATE Manager SET store_id = '$store2', title = '$title2', salary = '$salary2' WHERE emp_id ='$id2'";
 		
+		$update_sales_result = mysqli_query($connection, $update_sales_query);
+			
+		if ($update_sales_result) {
+			header("Location: editSuccess.php");
+		} else {
+			die("Database query failed. " . mysqli_error($connection));
+			}	
+		} 
 	}
 ?>
 <?php
@@ -90,21 +113,34 @@
 		$delete_emp_query = "DELETE FROM Employees WHERE emp_id = '$delete_id'";
 		$delete_emp_result = mysqli_query($connection, $delete_emp_query);
 		if ($delete_emp_result) {
-			echo "Successfully deleted employee #" . $delete_id . "; ";
+			header("Location: editSuccess.php");
 		} else {
 			die("Database query failed. " . mysqli_error($connection));
 		}
 		
-		// Delete from Salesperson table
+		// Delete from Salesperson/Manager table
+		$position_check2 = "SELECT * FROM Salesperson WHERE emp_id = '$delete_id'";
+		$position_query2 = mysqli_query($connection, $position_check2);
+		
+		if (mysqli_num_rows($position_query2) != 0) {
+
 		$delete_sales_query = "DELETE FROM Salesperson WHERE emp_id = '$delete_id'";
 		$delete_sales_result = mysqli_query($connection, $delete_sales_query);
 		if ($delete_sales_result) {
-			echo "Successfully deleted salesperson #" . $delete_id;
+			header("Location: editSuccess.php");
 		} else {
 			die("Database query failed. " . mysqli_error($connection));
 		} 
-
-		header("Location: editSuccess.php");
+		} else if (mysqli_num_rows($position_query2) == 0) {
+		
+		$delete_sales_query = "DELETE FROM Manager WHERE emp_id = '$delete_id'";
+		$delete_sales_result = mysqli_query($connection, $delete_sales_query);
+		if ($delete_sales_result) {
+			header("Location: editSuccess.php");
+		} else {
+			die("Database query failed. " . mysqli_error($connection));		
+		}
+		}
 	}
 ?>
 <!DOCTYPE html>
@@ -112,7 +148,7 @@
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="js/jquery-3.4.1.js"></script>
-	<script src="js/ricks.js"></script>
+	<script src="js/cars.js"></script>
 	<title>Edit Employee</title>
 </head>
 <body>

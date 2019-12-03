@@ -41,7 +41,7 @@ if (isset($_POST['search'])) {
 	$business_income = "";
 
 	// Get customer data from Home or Business table
-	if ($type == 'home') {
+	if ($type == 'Home') {
 		// Home table
 		$home_query = "SELECT * FROM Customer_Home WHERE customer_id = $id";
 		$home_result = mysqli_query($connection, $home_query);
@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
 	}
 
 	// Update Home/Business Table
-	if ($type2 == 'home') {
+	if ($type2 == 'Home') {
 		$update_home_query = "UPDATE Customer_Home SET marriage_status = '$marriage2', gender = '$gender2', age = '$age2', home_income = '$home_income2' WHERE customer_id = '$id2'";
 		$update_home_result = mysqli_query($connection, $update_home_query);
 		if ($update_home_result) {
@@ -143,7 +143,7 @@ if (isset($_POST['submit'])) {
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="js/jquery-3.4.1.js"></script>
-	<script src="js/ricks.js"></script>
+	<script src="js/cars.js"></script>
 	<title>Edit Customer</title>
 </head>
 
@@ -203,12 +203,12 @@ if (isset($_POST['submit'])) {
 						<label for="customer_type" class="col-sm-2 col-form-label">Type: </label>
 						<div class="col-sm-10">
 							<select class="form-control" name="customer_type">
-								<option value="home" <?php echo ($type == 'home') ? 'selected="selected"' : ''; ?>>Home</option>
-								<option value="business" <?php echo ($type == 'business') ? 'selected="selected"' : ''; ?>>Business</option>
+								<option value="Home" <?php echo ($type == 'Home') ? 'selected="selected"' : ''; ?>>Home</option>
+								<option value="Business" <?php echo ($type == 'Business') ? 'selected="selected"' : ''; ?>>Business</option>
 							</select>
 						</div>
 					</div>
-					<div id="home" <?php if ($type == 'business') {
+					<div id="home" <?php if ($type == 'Business') {
 															echo ' style="display:none"';
 														} ?>>
 						<label for="gender">Gender: </label>
@@ -220,7 +220,7 @@ if (isset($_POST['submit'])) {
 						<label for="marriage_status">Marital Status: </label>
 						<input class="form-control" type="text" name="marriage_status" value="<?php echo $marriage; ?>" />
 					</div>
-					<div id="business" <?php if ($type == 'home') {
+					<div id="business" <?php if ($type == 'Home') {
 																echo ' style="display:none"';
 															} ?>>
 						<label for="business_category">Type of Business: </label>

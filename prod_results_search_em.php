@@ -1,11 +1,11 @@
 <?php
 // Create a database connection
 $dbhost = "localhost";
-$dbuser = "root"; // username here
-$dbpass = "19960120toBY!!"; // password here
-$dbname = "db"; // db name here
+$dbuser = "root"; 
+$dbpass = "19960120toBY!!"; 
+$dbname = "db";
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-// Test if connection succeeded
+// Test to see if success
 if (mysqli_connect_errno()) {
 	die("Database connection failed: " .
 		mysqli_connect_error() .
@@ -20,8 +20,6 @@ if (isset($_POST['search'])) {
 	$syear = $_POST['car_model_year'];
 	$scolor = $_POST['car_color'];
 
-	//OR car_model LIKE '%$smodel%' OR car_model_year = '$syear' OR car_color = '$scolor'
-
 	$select_any = "SELECT * FROM Product WHERE product_id = '$sid' OR car_brand = '$sbrand' OR car_model = '$smodel' OR car_model_year = '$syear' OR car_color = '$scolor'";
 	$select_any_result = mysqli_query($connection, $select_any);
 	if (!$select_any_result) {
@@ -35,8 +33,8 @@ if (isset($_POST['search'])) {
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="js/jquery-3.4.1.js"></script>
-	<script src="js/ricks.js"></script>
-	<title>Customer Interface</title>
+	<script src="js/cars.js"></script>
+	<title>Employee Interface</title>
 </head>
 
 <body>
@@ -44,12 +42,12 @@ if (isset($_POST['search'])) {
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="customers.php">Main Page</a></li>
-				<li class="breadcrumb-item active" aria-current="prod_result_search_em.php">View Cars by Choices</li>
+				<li class="breadcrumb-item active" aria-current="prod_result_search_em.php">View Stocks by Choices</li>
 			</ol>
 		</nav>
 	</div>
 	<br>
-	<h2 style="text-align: center">View Cars Based on Your Choices.</h2>
+	<h2 style="text-align: center">View Stocks Based on Your Choices.</h2>
 	<br>
 	<div class="container text-center">
 		<table class="table">

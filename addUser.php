@@ -14,7 +14,7 @@
   }
   if(isset($_POST['manager_login'])){
   	  $login_id = $_POST['emp_id'];
-	  $login_query = "SELECT DISTINCT emp_id FROM Employees, Store, Region WHERE Employees.emp_id = '$login_id' AND (Employees.emp_id = Region.region_manager OR Employees.emp_id = Store.store_manager)";
+	  $login_query = "SELECT DISTINCT emp_id FROM Employees, Store, Region WHERE Employees.emp_id = '$login_id' AND (Employees.emp_id = Region.region_manager)";
 	  $login_result = mysqli_query($connection, $login_query);
 	  if (!$login_result) {
 		  die("Database query failed."); // bad query syntax
@@ -72,7 +72,7 @@
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="js/jquery-3.4.1.js"></script>
-	<script src="js/ricks.js"></script>
+	<script src="js/cars.js"></script>
 	<title>Add Employee</title>
 </head>
 <body>

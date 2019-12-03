@@ -18,7 +18,7 @@ if (mysqli_connect_errno()) {
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="js/jquery-3.4.1.js"></script>
-	<script src="js/ricks.js"></script>
+	<script src="js/cars.js"></script>
 	<title>Welcome to XXX's Cars</title>
 </head>
 
@@ -47,7 +47,7 @@ if (mysqli_connect_errno()) {
 							<input class="form-control" type="text" name="empid" placeholder="Employee ID"/>
 						</div>
                         <div class="form-group">
-						    <input class="btn btn-primary" type="submit" name="employee" value="I'm a Employee.">
+						    <input class="btn btn-primary" type="submit" name="employee" value="I'm an Employee.">
                         </div>
 					</form>
 				</div>

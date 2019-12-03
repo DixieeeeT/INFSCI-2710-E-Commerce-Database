@@ -1,11 +1,11 @@
 <?php
 // Create a database connection
 $dbhost = "localhost";
-$dbuser = "root"; // username here
-$dbpass = "19960120toBY!!"; // password here
-$dbname = "db"; // db name here
+$dbuser = "root"; 
+$dbpass = "19960120toBY!!"; 
+$dbname = "db"; 
 $connection = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-// Test if connection succeeded
+// Test to see if success
 if (mysqli_connect_errno()) {
 	die("Database connection failed: " .
 		mysqli_connect_error() .
@@ -29,8 +29,8 @@ if (isset($_POST['top_customers'])) {
 <head>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="js/jquery-3.4.1.js"></script>
-	<script src="js/ricks.js"></script>
-	<title>Customer Interface</title>
+	<script src="js/cars.js"></script>
+	<title>Employee Interface</title>
 </head>
 
 <body>
