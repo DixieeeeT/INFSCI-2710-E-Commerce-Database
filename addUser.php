@@ -80,76 +80,92 @@
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="employees.php">Additional Actions</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Add User</li>
+				<li class="breadcrumb-item active" aria-current="page">Add Employee</li>
 			</ol>
 		</nav>
 	</div>
-	<br>
-	<h2 style = "text-align: center">Add Employee</h2>
-	<br>
-	<div class="text-center" style = "margin-top: 20px">
-		<form action="addUser.php" method="post">
-			<p>
+
+	<div class="container" style="margin-top: 50px">
+		<h2 class="title">Add/Edit Employee</h2>
+		<div class="row">
+			<div class="col">
+				<div class="card">
+					<div class="card-body">
+
+		<form id="addCust" action="addUser.php" method="post">
+			<!-- <p>
 				Employee Details: 
-			</p>
-			<div>
+			</p> -->
+			<fieldset disabled>
+			<div class="form-group">
 				<label for="emp_id">Employee ID: </label>
-				<input type="text" name="emp_id" value="<?php echo $new_id;?>" />
+				<input class="form-control" id="disabledTextInput" type="text" name="emp_id" value="<?php echo $new_id;?>" />
 			</div>
-			<div>
+		</fieldset>
+			<div class="form-group">
 				<label for="emp_name">Name: </label>
-				<input type="text" name="emp_name" />
+				<input class="form-control" type="text" name="emp_name" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label for="emp_address_street">Street: </label>
-				<input type="text" name="emp_address_street" />
+				<input class="form-control" type="text" name="emp_address_street" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label for="emp_address_city">City: </label>
-				<input type="text" name="emp_address_city" />
+				<input class="form-control" type="text" name="emp_address_city" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label for="emp_address_state">State: </label>
-				<input type="text" name="emp_address_state" />
+				<input class="form-control" type="text" name="emp_address_state" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label for="emp_address_zip">Zip: </label>
-				<input type="text" name="emp_address_zip" />
+				<input class="form-control" type="text" name="emp_address_zip" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label for="email">Email: </label>
-				<input type="text" name="email" />
+				<input class="form-control" type="text" name="email" />
 			</div>
 			<br>
-			<p>
+			<!-- <p>
 				Assignment:
-			</p>
-			<div>
+			</p> -->
+			<div class="form-group">
 				<label for="title">Title: </label>
-				<input type="text" name="title" />
+				<input class="form-control" type="text" name="title" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label for="store_id">Store ID: </label>
-				<input type="text" name="store_id" />
+				<input class="form-control" type="text" name="store_id" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label for="salary">Salary: </label>
-				<input type="text" name="salary" />
+				<input class="form-control" type="text" name="salary" />
 			</div>
-			<div><input type="submit" name="submit" value="Submit"></div>
+			<div><input class="btn btn-primary" type="submit" name="submit" value="Submit"></div>
 		</form>
-		<br><br>
+		</div>
+	</div>
+</div>
+
+<div class="col">
 		<h4>
 			To edit or delete an employee, enter the 
 			employee ID below and click "Search"
 		</h4>
 		<br>
-		<form action="editUser.php" method="post">
-			<label for="emp_id">Employee ID: </label>
-			<input type="text" name="emp_id" />
-			<input type="submit" name="search" value="Search">
+		<form class="form-inline" action="editUser.php" method="post">
+			<div class="form-group mb-2">
+				<label for="emp_id">Employee ID: </label>
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+				<input class="form-control" type="text" name="emp_id" />
+			</div>
+			<input class="btn btn-primary mb-2" type="submit" name="search" value="Search">
 		</form>
 	</div>
+</div>
+</div>
 </body>
 </html>
 
