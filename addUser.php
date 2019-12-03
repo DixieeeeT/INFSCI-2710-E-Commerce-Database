@@ -65,7 +65,10 @@
 		} else {
 			die("Database query failed. " . mysqli_error($connection));
 		}
+	header("Location: addSuccess.php");
 	}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -96,12 +99,12 @@
 			<!-- <p>
 				Employee Details: 
 			</p> -->
-			<fieldset disabled>
+			
 			<div class="form-group">
 				<label for="emp_id">Employee ID: </label>
-				<input class="form-control" id="disabledTextInput" type="text" name="emp_id" value="<?php echo $new_id;?>" />
+				<input class="form-control" type="text" name="emp_id" value="<?php echo $new_id;?>" readonly />
 			</div>
-		</fieldset>
+		
 			<div class="form-group">
 				<label for="emp_name">Name: </label>
 				<input class="form-control" type="text" name="emp_name" />
