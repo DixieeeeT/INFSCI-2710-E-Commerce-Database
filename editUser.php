@@ -145,90 +145,123 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="js/jquery-3.4.1.js"></script>
-	<script src="js/cars.js"></script>
-	<title>Edit Employee</title>
-</head>
-<body>
-	<div class="container">
-		<nav aria-label="breadcrumb">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="employees.php">Additional Actions</a></li>
-				<li class="breadcrumb-item"><a href="addUser.php">Add User</a></li>
-				<li class="breadcrumb-item active" aria-current="editUser.php">Edit User</li>
-			</ol>
-		</nav>
-	</div>
-	<br>
-	<h2 style = "text-align: center">Edit Employee</h2>
-	<br>
-	<div class="text-center" style = "margin-top: 10px">
-		<form action="editUser.php" method="post">
-			<p>
-				Employee Details: 
-			</p>
-			<div>
-				<label for="emp_id">Employee ID: </label>
-				<input type="text" name="emp_id" value="<?php echo $id;?>" />
-			</div>
-			<div>
-				<label for="emp_name">Name: </label>
-				<input type="text" name="emp_name" value="<?php echo $name;?>" />
-			</div>
-			<div>
-				<label for="emp_address_street">Street: </label>
-				<input type="text" name="emp_address_street" value="<?php echo $street;?>" />
-			</div>
-			<div>
-				<label for="emp_address_city">City: </label>
-				<input type="text" name="emp_address_city" value="<?php echo $city;?>" />
-			</div>
-			<div>
-				<label for="emp_address_state">State: </label>
-				<input type="text" name="emp_address_state" value="<?php echo $state;?>" />
-			</div>
-			<div>
-				<label for="emp_address_zip">Zip: </label>
-				<input type="text" name="emp_address_zip" value="<?php echo $zip;?>" />
-			</div>
-			<div>
-				<label for="email">Email: </label>
-				<input type="text" name="email" value="<?php echo htmlentities($email);?>" />
-			</div>
-			<p>
-				Assignment:
-			</p>
-			<div>
-				<label for="title">Title: </label>
-				<input type="text" name="title" value="<?php echo $title;?>" />
-			</div>
-			<div>
-				<label for="store_id">Store ID: </label>
-				<input type="text" name="store_id" value="<?php echo $store;?>" />
-			</div>
-			<div>
-				<label for="salary">Salary: </label>
-				<input type="text" name="salary" value="<?php echo $salary;?>" />
-			</div>
-			<div><input type="submit" name="submit" value="Submit"></div>
-		</form>
-		<br><br>
-		<h4>
-			Please retype Employee ID to confirm Delete.<br><br>
-			This action is irreversible!
-		</h4>
-		<br>
-		<form action="editUser.php" method="post">
-			<div>
-				<label for="delete_id">Delete ID: </label>
-				<input type="text" name="delete_id" />
-			</div>
-			<input type="submit" name="delete" value="Delete User">
-		</form>
-	</div>
-</body>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/cars.js"></script>
+    <title>Edit Employee</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="employees.php">Additional Actions</a>
+          </li>
+          <li class="breadcrumb-item"><a href="addUser.php">Add User</a></li>
+          <li class="breadcrumb-item active" aria-current="editUser.php">
+            Edit User
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <br />
+    <div class="container">
+      <h2 style="title">Edit Employee</h2>
+      <div class="card" style="margin-top: 20px">
+        <div class="card-body">
+				<form action="editUser.php" method="post">
+						<p>
+						  Employee Details:
+						</p>
+						<div>
+						  <label for="emp_id">Employee ID: </label>
+						  <input type="text" name="emp_id" value="<?php echo $id;?>" />
+						</div>
+						<div>
+						  <label for="emp_name">Name: </label>
+						  <input type="text" name="emp_name" value="<?php echo $name;?>" />
+						</div>
+						<div>
+						  <label for="emp_address_street">Street: </label>
+						  <input
+							type="text"
+							name="emp_address_street"
+							value="<?php echo $street;?>"
+						  />
+						</div>
+						<div>
+						  <label for="emp_address_city">City: </label>
+						  <input
+							type="text"
+							name="emp_address_city"
+							value="<?php echo $city;?>"
+						  />
+						</div>
+						<div>
+						  <label for="emp_address_state">State: </label>
+						  <input
+							type="text"
+							name="emp_address_state"
+							value="<?php echo $state;?>"
+						  />
+						</div>
+						<div>
+						  <label for="emp_address_zip">Zip: </label>
+						  <input
+							type="text"
+							name="emp_address_zip"
+							value="<?php echo $zip;?>"
+						  />
+						</div>
+						<div>
+						  <label for="email">Email: </label>
+						  <input
+							type="text"
+							name="email"
+							value="<?php echo htmlentities($email);?>"
+						  />
+						</div>
+						<p>
+						  Assignment:
+						</p>
+						<div>
+						  <label for="title">Title: </label>
+						  <input type="text" name="title" value="<?php echo $title;?>" />
+						</div>
+						<div>
+						  <label for="store_id">Store ID: </label>
+						  <input type="text" name="store_id" value="<?php echo $store;?>" />
+						  <small class="form-text text-muted">Example: (from 2001 to 2007)</small>
+						</div>
+						<div>
+						  <label for="salary">Salary: </label>
+						  <input type="text" name="salary" value="<?php echo $salary;?>" />
+						</div>
+						<div><input type="submit" name="submit" value="Submit" /></div>
+					  </form>
+		</div>
+        <br /><br />
+        <h4>
+          Please retype Employee ID to confirm Delete.<br /><br />
+          This action is irreversible!
+        </h4>
+        <br />
+        <form action="editUser.php" method="post">
+          <div>
+            <label for="delete_id">Delete ID: </label>
+            <input type="text" name="delete_id" />
+          </div>
+          <input type="submit" name="delete" value="Delete User" />
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
 
 <?php

@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
 						<form action="addInv.php" method="post">
 							<div class="form-group">
 								<label for="product_id">Car ID: </label>
-								<input class="form-control" type="text" name="product_id" value="<?php echo $new_id; ?>" />
+								<input readonly class="form-control" type="text" name="product_id" value="<?php echo $new_id; ?>" />
 							</div>
 							<div class="form-group">
 								<label for="car_brand">Car Brand: </label>

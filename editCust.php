@@ -166,7 +166,7 @@ if (isset($_POST['submit'])) {
 					<div class="form-group row">
 						<label for="customer_id" class="col-sm-2 col-form-label">Customer ID: </label>
 						<div class="col-sm-10">
-							<input class="form-control" type="text" name="customer_id" value="<?php echo $id; ?>" />
+							<input readonly class="form-control" type="text" name="customer_id" value="<?php echo $id; ?>" />
 						</div>
 					</div>
 					<div class="form-group row">
