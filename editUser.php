@@ -213,7 +213,7 @@ if (isset($_POST['delete'])) {
 					<div class="form-group">
 						<label for="store_id">Store ID: </label>
 						<input class="form-control" type="text" name="store_id" value="<?php echo $store; ?>" />
-						<small class="form-text text-muted">Example: (from 2001 to 2007)</small>
+						<small class="form-text text-muted">Example: (from 2001 to 2008)</small>
 					</div>
 					<div class="form-group">
 						<label for="salary">Salary: </label>
@@ -244,6 +244,6 @@ if (isset($_POST['delete'])) {
 </html>
 
 <?php
-// 5. Close database connection
+// Close database connection
 mysqli_close($connection);
 ?>

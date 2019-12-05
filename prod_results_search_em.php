@@ -20,7 +20,42 @@ if (isset($_POST['search'])) {
 	$syear = $_POST['car_model_year'];
 	$scolor = $_POST['car_color'];
 
-	$select_any = "SELECT * FROM Product WHERE product_id = '$sid' OR car_brand = '$sbrand' OR car_model = '$smodel' OR car_model_year = '$syear' OR car_color = '$scolor'";
+	if ($sid != "" & $sbrand == "" & $smodel == "" & $syear == "" & $scolor == "") {
+		$select_any = "SELECT * FROM Product WHERE product_id = '$sid'";
+	} else if ($sid == "" & $sbrand != "" & $smodel == "" & $syear == "" & $scolor == "") {
+		$select_any = "SELECT * FROM Product WHERE car_brand = '$sbrand'";
+	} else if ($sid == "" & $sbrand == "" & $smodel != "" & $syear == "" & $scolor == "") {
+		$select_any = "SELECT * FROM Product WHERE car_model = '$smodel'";
+	} else if ($sid == "" & $sbrand == "" & $smodel == "" & $syear != "" & $scolor == "") {
+		$select_any = "SELECT * FROM Product WHERE car_model_year = '$syear'";
+	} else if ($sid == "" & $sbrand == "" & $smodel == "" & $syear == "" & $scolor != "") {
+		$select_any = "SELECT * FROM Product WHERE car_color = '$scolor'";
+	} else if ($sid == "" & $sbrand != "" & $smodel != "" & $syear == "" & $scolor == "") {
+		$select_any = "SELECT * FROM Product WHERE car_brand = '$sbrand' AND car_model = '$smodel'";
+	} else if ($sid == "" & $sbrand != "" & $smodel == "" & $syear != "" & $scolor == "") {
+		$select_any = "SELECT * FROM Product WHERE car_brand = '$sbrand' AND car_model_year = '$syear'";
+	} else if ($sid == "" & $sbrand != "" & $smodel == "" & $syear == "" & $scolor != "") {
+		$select_any = "SELECT * FROM Product WHERE car_brand = '$sbrand' AND car_color = '$scolor'";
+	} else if ($sid == "" & $sbrand == "" & $smodel != "" & $syear != "" & $scolor == "") {
+		$select_any = "SELECT * FROM Product WHERE car_model = '$smodel' AND car_model_year = '$syear'";
+	} else if ($sid == "" & $sbrand == "" & $smodel != "" & $syear == "" & $scolor != "") {
+		$select_any = "SELECT * FROM Product WHERE car_model = '$smodel' AND car_color = '$scolor'";
+	} else if ($sid == "" & $sbrand == "" & $smodel == "" & $syear != "" & $scolor != "") {
+		$select_any = "SELECT * FROM Product WHERE car_model_year = '$syear' AND car_color = '$scolor'";
+	} else if ($sid == "" & $sbrand != "" & $smodel != "" & $syear != "" & $scolor == "") {
+		$select_any = "SELECT * FROM Product WHERE car_brand = '$sbrand' AND car_model = '$smodel' AND car_model_year = '$syear'";
+	} else if ($sid == "" & $sbrand != "" & $smodel != "" & $syear == "" & $scolor != "") {
+		$select_any = "SELECT * FROM Product WHERE car_brand = '$sbrand' AND car_model = '$smodel' AND car_color = '$scolor'";
+	} else if ($sid == "" & $sbrand != "" & $smodel == "" & $syear != "" & $scolor != "") {
+		$select_any = "SELECT * FROM Product WHERE car_brand = '$sbrand' AND car_model_year = '$syear' AND car_color = '$scolor'";
+	} else if ($sid == "" & $sbrand == "" & $smodel != "" & $syear != "" & $scolor != "") {
+		$select_any = "SELECT * FROM Product WHERE car_model = '$smodel' AND car_model_year = '$syear' AND car_color = '$scolor'";
+	} else if ($sid == "" & $sbrand != "" & $smodel != "" & $syear != "" & $scolor != "") {
+		$select_any = "SELECT * FROM Product WHERE car_brand = '$sbrand' AND car_model = '$smodel' AND car_model_year = '$syear' AND car_color = '$scolor'";
+	} else {
+		header("Location: bad_make_payment.php");
+	}
+
 	$select_any_result = mysqli_query($connection, $select_any);
 	if (!$select_any_result) {
 		die("Database query failed."); // bad query syntax
